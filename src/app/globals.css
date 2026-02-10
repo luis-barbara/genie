@@ -1,26 +1,163 @@
 @import "tailwindcss";
 
+
+@import "tailwindcss";
+
+/* ---------------------------
+   ROOT VARIABLES (light mode)
+---------------------------- */
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  /* Base colors */
+  --background: 222 47% 6%;
+  --foreground: 210 40% 98%;
+  --border: 222 30% 18%;
+  --input: 222 30% 18%;
+  --ring: 174 72% 56%;
+
+  /* Primary palette */
+  --primary: 174 72% 56%;
+  --primary-foreground: 210 40% 98%;
+
+  --secondary: 200 15% 15%;
+  --secondary-foreground: 210 40% 98%;
+
+  --muted: 222 20% 15%;
+  --muted-foreground: 210 10% 70%;
+
+  --accent: 200 80% 50%;
+  --accent-foreground: 210 40% 98%;
+
+  --card: 222 30% 10%;
+  --card-foreground: 210 40% 98%;
+
+  --popover: 222 30% 10%;
+  --popover-foreground: 210 40% 98%;
+
+  /* Genie-specific */
+  --genie-surface: 222 28% 12%;
+  --genie-surface-hover: 222 28% 16%;
+  --genie-gradient: linear-gradient(135deg, hsl(174 72% 56%) 0%, hsl(200 80% 50%) 100%);
+
+  /* Sidebar */
+  --sidebar-background: 222 30% 8%;
+  --sidebar-foreground: 210 40% 98%;
+  --sidebar-primary: 174 72% 56%;
+  --sidebar-primary-foreground: 222 30% 10%;
+  --sidebar-accent: 200 80% 50%;
+  --sidebar-accent-foreground: 210 40% 98%;
+  --sidebar-border: 222 30% 20%;
+  --sidebar-ring: 174 72% 56%;
+
+  /* Severity */
+  --severity-critical: 0 85% 60%;
+  --severity-high: 20 90% 55%;
+  --severity-medium: 40 90% 50%;
+  --severity-low: 60 70% 45%;
+
+  /* Status */
+  --status-open: 200 80% 55%;
+  --status-in-progress: 40 90% 50%;
+  --status-resolved: 140 70% 45%;
+
+  /* Shadows */
+  --shadow-color: 222 47% 6%;
+
+  /* Radius */
+  --radius: 8px;
+
+  /* Fonts (Tailwind v4 inline definitions) */
+  --font-sans: Inter, system-ui, sans-serif;
+  --font-mono: "JetBrains Mono", monospace;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
 
+/* ---------------------------
+   DARK MODE
+---------------------------- */
 @media (prefers-color-scheme: dark) {
   :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+    --background: 222 47% 6%;
+    --foreground: 210 40% 98%;
   }
 }
 
+
+/* ---------------------------
+   THEME EXTENSIONS (Tailwind v4)
+---------------------------- */
+@theme {
+  --color-background: hsl(var(--background));
+  --color-foreground: hsl(var(--foreground));
+  --color-border: hsl(var(--border));
+  --color-input: hsl(var(--input));
+  --color-ring: hsl(var(--ring));
+
+  --color-primary: hsl(var(--primary));
+  --color-primary-foreground: hsl(var(--primary-foreground));
+
+  --color-secondary: hsl(var(--secondary));
+  --color-secondary-foreground: hsl(var(--secondary-foreground));
+
+  --color-muted: hsl(var(--muted));
+  --color-muted-foreground: hsl(var(--muted-foreground));
+
+  --color-card: hsl(var(--card));
+  --color-card-foreground: hsl(var(--card-foreground));
+
+  --color-accent: hsl(var(--accent));
+  --color-accent-foreground: hsl(var(--accent-foreground));
+
+  --radius-lg: var(--radius);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-xl: calc(var(--radius) + 4px);
+  --radius-2xl: calc(var(--radius) + 8px);
+
+  /* Box shadows */
+  --shadow-soft: 0 2px 8px -2px hsl(var(--shadow-color) / 0.1),
+                 0 4px 16px -4px hsl(var(--shadow-color) / 0.1);
+
+  --shadow-soft-lg: 0 4px 12px -2px hsl(var(--shadow-color) / 0.15),
+                    0 8px 24px -4px hsl(var(--shadow-color) / 0.1);
+
+  --shadow-card: 0 1px 3px hsl(var(--shadow-color) / 0.1),
+                 0 1px 2px hsl(var(--shadow-color) / 0.06);
+
+  --shadow-card-hover: 0 4px 12px hsl(var(--shadow-color) / 0.15),
+                       0 2px 4px hsl(var(--shadow-color) / 0.1);
+}
+
+
+/* ---------------------------
+   UTILITIES NOT BUILT-IN
+---------------------------- */
+
+.genie-gradient-text {
+  background-image: var(--genie-gradient);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.genie-glow {
+  box-shadow: 0 0 20px hsl(var(--primary) / 0.3);
+}
+
+.genie-glow-lg {
+  box-shadow: 0 0 40px hsl(var(--primary) / 0.4);
+}
+
+/* Glass effect */
+.glass {
+  backdrop-filter: blur(12px);
+}
+
+
+/* ---------------------------
+   BASE TYPOGRAPHY
+---------------------------- */
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background: hsl(var(--background));
+  color: hsl(var(--foreground));
+  font-family: var(--font-sans);
 }

@@ -1,4 +1,8 @@
 
+// Common types
+export type Severity = "low" | "medium" | "high" | "critical"
+export type EventType = "error" | "performance" | "security"
+
 // User and authentication 
 export type UserRole = "user" | "admin"
 
@@ -38,7 +42,7 @@ export interface ErrorEvent {
     url?: string
     userAgent?: string
     timestamp: string
-    severity: "low" | "medium" | "high" | "critical"
+    severity: Severity
     occurrences: number
 }
 
@@ -66,7 +70,7 @@ export interface SecurityEvent {
     description: string
     sourceIP?: string
     timestamp: string
-    severity: "low" | "medium" | "high" | "critical"
+    severity: Severity
 }
 
 
@@ -79,7 +83,7 @@ export interface Insight {
     category: "error" | "performance" | "security" | "usability"
     title: string
     description: string
-    severity: "low" | "medium" | "high"
+    severity: Exclude<Severity, "critical">
     createdAt: string
 }
 
@@ -88,7 +92,7 @@ export interface Insight {
 // Tickets
 export type TicketType = "bug" | "performance" | "security"
 export type TicketStatus = "new" | "in_progress" | "resolved"
-export type TicketPriority = "low" | "medium" | "high" | "critical"
+export type TicketPriority = Severity
 
 export interface Ticket {
     id: string
@@ -123,16 +127,15 @@ export interface MonthlyUsage {
 
 // DTOS - data transfer objects for API requests/responses
 // SDK → API (client sends events)
-export interface EventPushRequest {
-    projectId: string
-    type: "error" | "performance" | "security"
-    payload: any
-}
+export type EventPushRequest = 
+  | { projectId: string; type: "error"; payload: Partial<ErrorEvent> }
+  | { projectId: string; type: "performance"; payload: Partial<PerformanceEvent> }
+  | { projectId: string; type: "security"; payload: Partial<SecurityEvent> }
 
 // Dashboard → API (filters)
 export interface EventQuery {
     projectId: string
-    type?: "error" | "performance" | "security"
+    type?: EventType
     severity?: string
     startDate?: string
     endDate?: string
