@@ -1,7 +1,7 @@
 import Link from "next/link";
 import Image from "next/image";
 
-export default function Header() {
+const Header = () => {
     return (
         <header className="flex justify-between items-center py-4 px-6 ">
             <Link href="/" className="flex items-center gap-2 ">
@@ -35,7 +35,7 @@ export default function Header() {
                 </Link>
 
                 <Link href="/register">
-                    <button className="inline-flex items-center justify-center whitespace-nowrap text-sm ring-offset-background focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:size-4 [&_svg]:shrink-0 genie-gradient-bg text-primary-foreground font-semibold hover:opacity-90 genie-glow transition-all duration-300 h-9 rounded-md px-3 gap-2">
+                    <button className="inline-flex items-center justify-center whitespace-nowrap text-sm ring-offset-background focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:size-4 [&_svg]:shrink-0 genie-gradient-bg text-primary-foreground font-semibold hover:opacity-90 genie-glow transition-all duration-300 h-9 rounded-md px-3 gap-2 cursor-pointer">
                         Start Free
                         <svg
                             xmlns="http://www.w3.org/2000/svg"
@@ -58,3 +58,5 @@ export default function Header() {
         </header>
     );
 }
+
+export default Header;
