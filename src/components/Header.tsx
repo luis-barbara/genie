@@ -3,7 +3,7 @@ import Image from "next/image";
 
 const Header = () => {
     return (
-        <header className="flex justify-between items-center py-4 px-6 ">
+        <header className="flex justify-between items-center py-4 ">
             <Link href="/" className="flex items-center gap-2 ">
                 <Image
                     src="/genie-logo.png"
