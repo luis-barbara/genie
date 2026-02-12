@@ -31,9 +31,12 @@ export default function RootLayout({
       <body
         className={`${inter.variable} ${jetbrainsMono.variable} antialiased`}
       >
-        <Header />
-        <Hero />
-        {children}
+        {/* Container global */}
+        <div className="max-w-screen-xl mx-auto px-6">
+          <Header />
+          <Hero />
+          {children}
+        </div>
       </body>
     </html>
   );
