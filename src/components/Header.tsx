@@ -6,13 +6,13 @@ const Header = () => {
   return (
     <header className="flex justify-between items-center py-4">
       {/* Logo */}
-      <Link href="/" className="flex items-center gap-2">
+      <Link href="/" className="flex items-center gap-4">
         <Image
           src="/genie-logo.png"
           alt="Genie"
-          width={80}
-          height={80}
-          className="h-20 w-20 -my-4" // Mantido por causa do espaçamento da imagem
+          width={32}
+          height={32}
+          className="h-8 w-8"
         />
         <span className="text-2xl font-bold genie-gradient-text">Genie</span>
       </Link>
