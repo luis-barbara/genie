@@ -5,6 +5,9 @@ import Header from "@/components/Header";
 import Hero from "@/components/Hero";
 import Features from "@/components/Features";
 import HowItWorks from "@/components/HowItWorks";
+import WorksWithStack from "@/components/WorksWithStack";
+import GenieCopilot from "@/components/GenieCopilot";
+import Pricing from "@/components/Pricing";
 
 
 const inter = Inter({
@@ -36,7 +39,7 @@ export default function RootLayout({
       >
         {/* Header fixo com container */}
         <div className="fixed top-0 left-0 right-0 z-50 bg-background/80 backdrop-blur-md border-b border-border/50">
-          <div className="max-w-screen-xl mx-auto px-6">
+          <div className="max-w-7xl mx-auto px-6">
             <Header />
           </div>
         </div>
@@ -49,11 +52,11 @@ export default function RootLayout({
 
         <Features />
         <HowItWorks />
-        
-        {/* Conteúdo com container */}
-        <div className="max-w-screen-xl mx-auto px-6">
-          {children}
-        </div>
+        <WorksWithStack />
+        <GenieCopilot />
+        <Pricing />
+
+        {children}
       </body>
     </html>
   );

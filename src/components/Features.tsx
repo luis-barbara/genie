@@ -36,7 +36,7 @@ const valuePillars = [
 const Features = () => {
     return (
         <section className="py-24 md:py-32 border-t border-border/50" id="features">
-        <div className="container mx-auto px-6">
+        <div className="max-w-7xl mx-auto px-6">
             <div className="text-center mb-16">
             <h2 className="text-3xl md:text-5xl font-bold mb-4">
                 Everything you need to{" "}
