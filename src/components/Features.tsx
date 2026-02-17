@@ -3,33 +3,33 @@ import { Brain, Zap, GitPullRequest, Rocket, MapPin, RefreshCcw } from "lucide-r
 const valuePillars = [
   {
     icon: Brain,
-    title: "AI-powered root-cause analysis",
-    description: "Genie understands your stack traces, logs, sessions and environment to tell you exactly why an error is happening.",
+    title: "Reads your entire project",
+    description: "Understands your code, architecture, dependencies, and patterns. Knows your project inside-out.",
   },
   {
     icon: Zap,
-    title: "One-click fixes",
-    description: "Generate patch code instantly with AI trained on your project structure and tech stack.",
+    title: "Make changes in plain language",
+    description: "Just tell Genie what to do. It generates the updates, explains them, and waits for your approval.",
   },
   {
     icon: GitPullRequest,
-    title: "Automated PR creation",
-    description: "Genie creates pull requests with explanations, tests and impact analysis.",
+    title: "Preview before applying",
+    description: "Full preview, risk assessment, and safety checks. Nothing touches your code without your OK.",
   },
   {
     icon: Rocket,
-    title: "Safe deploy to staging or production",
-    description: "Deploy AI-generated fixes directly from Genie. Admin approval required for production.",
+    title: "Deploy from one place",
+    description: "Approved changes become PRs, run tests, and deploy automatically to staging or production.",
   },
   {
     icon: MapPin,
-    title: "Full user-session context",
-    description: "See exactly where users got stuck — sessions, devices, OS, browser and timeline.",
+    title: "Catch and fix issues instantly",
+    description: "Detects bugs, performance problems, and vulnerabilities before your users notice. Suggests safe fixes immediately.",
   },
   {
     icon: RefreshCcw,
-    title: "Regression detection",
-    description: "Automatically detect bugs that reappear after deploys. Compare releases to prevent broken fixes.",
+    title: "Learns and improves over time",
+    description: "Remembers past decisions, adapts to your patterns, and continuously evolves alongside your project.",
   },
 ];
 
@@ -39,11 +39,11 @@ const Features = () => {
         <div className="max-w-7xl mx-auto px-6">
             <div className="text-center mb-16">
             <h2 className="text-3xl md:text-5xl font-bold mb-4">
-                Everything you need to{" "}
-                <span className="genie-gradient-text">ship with confidence</span>
+                One Ai. Every role.{" "}
+                <span className="genie-gradient-text">From request to production.</span>
             </h2>
             <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-                From detection to deployment, Genie handles the entire bug resolution lifecycle
+                Genie evolves your existing project — frontend, backend, APIs, database, infrastructure — instantly, without developers.
             </p>
             </div>
 

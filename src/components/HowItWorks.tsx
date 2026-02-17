@@ -1,12 +1,12 @@
-import { AlertTriangle, Search, Code, GitPullRequest, Play, Rocket } from "lucide-react";
+import { Database, Search, Code, GitPullRequest, Rocket, MessageSquare } from "lucide-react";
 
 const workflowSteps = [
-  { step: 1, title: "Error detected", icon: AlertTriangle },
-  { step: 2, title: "AI root cause", icon: Search },
-  { step: 3, title: "Fix generated", icon: Code },
-  { step: 4, title: "PR created", icon: GitPullRequest },
-  { step: 5, title: "Deploy staging", icon: Play },
-  { step: 6, title: "Deploy prod", icon: Rocket },
+  { step: 1, title: "Connect your project", icon: Database },
+  { step: 2, title: "Genie scans and detects", icon: Search },
+  { step: 3, title: "Request a change", icon: MessageSquare },
+  { step: 4, title: "Preview the diff", icon: Code },
+  { step: 5, title: "Aprove & merge", icon: GitPullRequest },
+  { step: 6, title: "Deploy with confidence", icon: Rocket },
 ];
 
 const HowItWorks = () => {
@@ -18,7 +18,7 @@ const HowItWorks = () => {
             How <span className="genie-gradient-text">Genie</span> Works
           </h2>
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-            Six automated steps from error detection to production deployment
+            Six steps to evolve your existing project
           </p>
         </div>
         

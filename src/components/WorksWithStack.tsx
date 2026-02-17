@@ -36,11 +36,14 @@ const WorksWithStack = () => {
             Works with your <span className="genie-gradient-text">existing stack</span> 
           </h2>
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-            Seamless integration with the tools you already use
+            Genie understands any framework, language, or infrastructure
           </p>
         </div>
         
-        <div className="flex flex-wrap justify-center gap-4 mb-8 max-w-4xl mx-auto">
+        <div className="text-center">
+          <p className="text-muted-foreground mb-4 uppercase">connects with</p>
+
+          <div className="flex flex-wrap justify-center gap-3">
         {integrations.map((item) => (
             <div
               key={item}
@@ -51,10 +54,10 @@ const WorksWithStack = () => {
           ))}
         </div>
 
-        <div className="text-center">
-          <p className="text-muted-foreground mb-4">Supports</p>
+        <div className="text-center mt-16">
+          <p className="text-muted-foreground mb-4 uppercase">supports any stack</p>
 
-          <div className="flex flex-wrap justify-center gap-3">
+        <div className="flex flex-wrap justify-center gap-3">
             {supports.map((item) => (
               <span
                 key={item}
@@ -64,6 +67,7 @@ const WorksWithStack = () => {
               </span>
             ))}
           </div>
+        </div>
         </div>
       </div>
     </section>

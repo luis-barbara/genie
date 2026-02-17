@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-import { Inter, JetBrains_Mono } from "next/font/google";
 import "./globals.css";
 import Header from "@/components/Header";
 import Hero from "@/components/Hero";
@@ -8,19 +7,7 @@ import HowItWorks from "@/components/HowItWorks";
 import WorksWithStack from "@/components/WorksWithStack";
 import GenieCopilot from "@/components/GenieCopilot";
 import Pricing from "@/components/Pricing";
-
-
-const inter = Inter({
-  variable: "--font-sans",
-  subsets: ["latin"],
-  weight: ["400", "500", "600", "700"],
-});
-
-const jetbrainsMono = JetBrains_Mono({
-  variable: "--font-mono",
-  subsets: ["latin"],
-  weight: ["400", "500"],
-});
+import GenieInNumbers from "@/components/GenieInNumbers";
 
 export const metadata: Metadata = {
   title: "Genie - AI-Powered Software Maintenance",
@@ -34,9 +21,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body
-        className={`${inter.variable} ${jetbrainsMono.variable} antialiased`}
-      >
+      <body className="antialiased">
         {/* Header fixo com container */}
         <div className="fixed top-0 left-0 right-0 z-50 bg-background/80 backdrop-blur-md border-b border-border/50">
           <div className="max-w-7xl mx-auto px-6">
@@ -50,6 +35,7 @@ export default function RootLayout({
         {/* Hero full width com Dashboard Preview */}
         <Hero />
 
+        <GenieInNumbers />
         <Features />
         <HowItWorks />
         <WorksWithStack />

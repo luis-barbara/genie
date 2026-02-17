@@ -1,30 +1,28 @@
-import { Bot, Clock, MessageSquare, Sparkles, Users, ChartColumn, Play, Database, Gauge, RefreshCw, TrendingUp, Shield, TriangleAlert } from "lucide-react";
+import { Bot, BrushCleaning, Globe, RefreshCcw, Clock, MessageSquare, Sparkles, Users, ChartColumn, Play, Database, Gauge, RefreshCw, TrendingUp, Shield, Zap, Code, TriangleAlert } from "lucide-react";
 
 const messages = [
-  "Explain this issue",
-  "Fix this",
-  "Deploy to staging",
-  "Deploy to production",
-  "Show regressions after the latest release",
-  "Which users are most affected?",
-  "Generate tests for the fix",
+  "Add a dark mode toggle to the settings page",
+  "Fix the checkout error users reported yesterday",
+  "Optimize the dashboard loading speed — it feels slow",
+  "Generate a summary of all changes made since the last release",
+  "Refactor the auth flow to make it more secure and easier to maintain"
+];
+
+const evolution = [
+    { icon: Code, label: "New features on demand" },
+    { icon: RefreshCcw, label: "Refactoring & cleanup" },
+    { icon: BrushCleaning, label: "UI & design updates" },
+    { icon: Database, label: "Backend & API changes" },
+    { icon: Globe, label: "Full-stack modifications" },
+    { icon: Gauge, label: "Performance optimization" },
 ];
 
 const monitoring = [
-    { icon: Clock, label: "Real-time issue detection" },
-    { icon: Users, label: "Smart grouping" },
-    { icon: ChartColumn, label: "Heatmaps & frequency charts" },
-    { icon: Play, label: "User session replay" },
-    { icon: Database, label: "Logs, stack traces, breadcrumbs" },
-    { icon: Gauge, label: "API / DB / frontend performance" },
-];
-
-const automation = [
-  { icon: RefreshCw, label: "Daily AI reports" },
-  { icon: TrendingUp, label: "Regression detection" },
-  { icon: ChartColumn, label: "Prioritization by impact" },
-  { icon: Shield, label: "Noise cleanup" },
-  { icon: Gauge, label: "Health scans" },
+  { icon: TriangleAlert, label: "Real-time bug detection" },
+  { icon: RefreshCcw, label: "Auto-repair suggestions" },
+  { icon: ChartColumn, label: "Performance monitoring" },
+  { icon: Shield, label: "Security vulnerability alerts" },
+  { icon: Gauge, label: "24/7 continuous logging" },
 ];
 
 
@@ -35,17 +33,18 @@ const GenieCopilot = () => {
       <div className="max-w-7xl mx-auto px-6">
 
         {/* Header */}
-        <div className="mb-16">
+        <div className="text-center mb-16">
           <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 ring-1 ring-primary/30 text-sm text-primary mb-8">
             <Bot className="h-4 w-4" />
-            AI-Assistant
+            AI Copilot
           </div>
           
           <h2 className="text-3xl md:text-4xl font-bold mb-4">
             Genie <span className="genie-gradient-text">Copilot</span> 
           </h2>
-          <p className="text-lg text-muted-foreground mb-6">
-            Your AI partner for debugging, maintenance and insight. Ask anything.
+          <p className="text-lg text-muted-foreground mb-6 max-w-3xl mx-auto">
+            Your AI dev team that knows every file, function, and dependency in your project.<br />
+            Request changes, evolve your architecture, improve your code — all in natural language.
           </p>
         </div>
 
@@ -72,35 +71,35 @@ const GenieCopilot = () => {
             </div>
             <div>
               <div className="font-semibold">Genie Copilot</div>
-              <div className="text-xs text-muted-foreground">AI Assistant</div>
+              <div className="text-xs text-muted-foreground">AI Copilot</div>
             </div>
           </div>
           <div className="space-y-4">
             <div className="p-3 rounded-lg bg-secondary/50">
               <div className="text-sm text-muted-foreground mb-1">You</div>
-              <div className="text-sm">Explain why the payment API is failing</div>
+              <div className="text-sm">Add a dark mode toggle to the settings page</div>
             </div>
             <div className="p-3 rounded-lg bg-primary/10 border border-primary/20">
               <div className="text-sm text-primary mb-1">Genie</div>
               <div className="text-sm">
-                The payment API is returning 429 due to rate limiting. The webhook handler is making duplicate calls...
+                Done. I&apos;ve added a dark mode toggle to your settings page. 3 files changed — here&apos;s the preview. Approve when ready.
               </div>
             </div>
           </div>
         </div>
 
-        {/* Card Error Intelligence */}
+        {/* Card Evolution */}
       <div className="p-8 rounded-2xl border border-border/50 bg-card/50">
-        <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-destructive/10 border border-destructive/20 text-sm text-destructive mb-6">
-          <TriangleAlert className="h-4 w-4" />
-          Monitoring
+        <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-destructive/10 border border-destructive/20 text-sm text-primary mb-6">
+          <Zap className="h-4 w-4" />
+          Evolution
         </div>
-        <h3 className="text-2xl font-bold mb-4">Error Intelligence</h3>
+        <h3 className="text-2xl font-bold mb-4">Code Evolution</h3>
         <p className="text-muted-foreground mb-6">
-          Deep visibility into every error affecting your users.
+          Request any change — new features, refactoring, UI updates, API changes — and Genie delivers production-ready code.
         </p>
         <div className="grid grid-cols-2 gap-3">
-          {monitoring.map(({ icon: Icon, label }, idx) => (
+          {evolution.map(({ icon: Icon, label }, idx) => (
             <div key={idx} className="flex items-center gap-2 text-sm">
               <Icon className="h-4 w-4 text-primary shrink-0" />
               <span>{label}</span>
@@ -109,18 +108,18 @@ const GenieCopilot = () => {
         </div>
       </div>
 
-      {/* Card Automated Maintenance */}
+      {/* Card Monitoring */}
       <div className="p-8 rounded-2xl border border-border/50 bg-card/50">
         <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-success/10 border border-success/20 text-sm text-success mb-6">
-          <RefreshCw className="h-4 w-4" />
-          Automation
+          <Shield className="h-4 w-4" />
+          Monitoring
         </div>
-        <h3 className="text-2xl font-bold mb-4">Automated Maintenance</h3>
+        <h3 className="text-2xl font-bold mb-4">Performance optimization</h3>
         <p className="text-muted-foreground mb-6">
-          Proactive health monitoring and intelligent maintenance.
+          Genie detects bugs, performance issues, and vulnerabilities 24/7. Suggests and applies safe fixes automatically.
         </p>
         <div className="grid grid-cols-2 gap-3">
-          {automation.map(({ icon: Icon, label }, idx) => (
+          {monitoring.map(({ icon: Icon, label }, idx) => (
             <div key={idx} className="flex items-center gap-2 text-sm">
               <Icon className="h-4 w-4 text-primary shrink-0" />
               <span>{label}</span>
