@@ -24,7 +24,7 @@ const HowItWorks = () => {
         
         <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-6 max-w-6xl mx-auto relative">
           {/* Connection line */}
-          <div className="hidden lg:block absolute top-12 left-0 right-0 h-0.5 bg-gradient-to-r from-transparent via-primary/30 to-transparent" />
+          <div className="hidden lg:block absolute top-12 left-0 right-0 h-0.5 bg-linear-to-r from-transparent via-primary/30 to-transparent" />
           
           {workflowSteps.map((step) => (
             <div key={step.step} className="flex flex-col items-center text-center relative z-10">

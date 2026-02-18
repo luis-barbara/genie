@@ -65,7 +65,7 @@ const GenieCopilot = () => {
         </div>
 
       {/* Grid com 6 cards (1 coluna em mobile, 2 colunas em desktop) */}
-      <div className="grid grid-flow-col grid-rows-6 gap-4">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
         {/* Card 1 - Topo Esquerda (Mensagens) */}
         <div className="space-y-3">
           {messages.map((msg, idx) => (

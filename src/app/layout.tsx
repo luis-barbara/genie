@@ -1,17 +1,20 @@
 import type { Metadata } from "next";
 import "./globals.css";
-import Header from "@/components/Header";
-import Hero from "@/components/Hero";
-import Features from "@/components/Features";
-import HowItWorks from "@/components/HowItWorks";
-import WorksWithStack from "@/components/WorksWithStack";
-import GenieCopilot from "@/components/GenieCopilot";
-import Pricing from "@/components/Pricing";
-import GenieInNumbers from "@/components/GenieInNumbers";
+import Header from "@/components/landingpage/Header";
+import Hero from "@/components/landingpage/Hero";
+import Features from "@/components/landingpage/Features";
+import HowItWorks from "@/components/landingpage/HowItWorks";
+import WorksWithStack from "@/components/landingpage/WorksWithStack";
+import GenieCopilot from "@/components/landingpage/GenieCopilot";
+import Pricing from "@/components/landingpage/Pricing";
+import GenieInNumbers from "@/components/landingpage/GenieInNumbers";
+import FinalCTA from "@/components/landingpage/FinalCTA";
+import Footer from "@/components/landingpage/Footer";
+
 
 export const metadata: Metadata = {
-  title: "Genie - AI-Powered Software Maintenance",
-  description: "Fix production issues automatically. Genie detects errors, explains root causes, generates code fixes, creates pull requests, and deploys updates to staging or production.",
+  title: "Genie - An entire dev team in one AI.",
+  description: "Connect your project and let Genie handle the rest. AI that understands your entire project — frontend, backend, APIs, database, infrastructure. Fixes bugs, improves features, deploys changes. All in seconds, fully under your control.",
 };
 
 export default function RootLayout({
@@ -41,6 +44,8 @@ export default function RootLayout({
         <WorksWithStack />
         <GenieCopilot />
         <Pricing />
+        <FinalCTA />
+        <Footer />
 
         {children}
       </body>
