@@ -27,7 +27,7 @@ const DashboardPreview = () => {
             </div>
           </div>
           <div className="rounded-b-xl bg-genie-surface overflow-hidden">
-            <div className="flex min-h-[420px]">
+            <div className="flex min-h-105">
               <div className="w-64 lg:w-72 border-r border-border/30 flex-col bg-card/30 hidden md:flex">
                 <div className="flex items-center gap-2 px-3 py-2.5 border-b border-border/20">
                   <div className="h-5 w-5 rounded-md genie-gradient-bg flex items-center justify-center">
@@ -52,7 +52,7 @@ const DashboardPreview = () => {
                     </div>
                   </div>
                   <div className="flex gap-2">
-                    <div className="h-5 w-5 rounded-md genie-gradient-bg flex items-center justify-center flex-shrink-0 mt-0.5">
+                    <div className="h-5 w-5 rounded-md genie-gradient-bg flex items-center justify-center shrink-0 mt-0.5">
                       <Bot className="h-3 w-3 text-primary-foreground" />
                     </div>
                     <div className="flex-1">
@@ -131,7 +131,7 @@ const DashboardPreview = () => {
                       </div>
                       <h2 className="relative text-xl lg:text-2xl font-bold text-foreground/90 px-3 py-1">Ship 10x faster</h2>
                     </div>
-                    <div className="text-[10px] text-muted-foreground/40 mb-5 max-w-[240px] mx-auto leading-relaxed">The modern platform for teams that build, deploy, and iterate without friction.</div>
+                    <div className="text-[10px] text-muted-foreground/40 mb-5 max-w-60 mx-auto leading-relaxed">The modern platform for teams that build, deploy, and iterate without friction.</div>
                     <div className="relative inline-block">
                       <div 
                         className="absolute -inset-1.5 rounded-lg bg-green-500/10" 
