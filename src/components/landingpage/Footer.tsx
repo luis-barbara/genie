@@ -35,8 +35,7 @@ const Footer = () => {
             <ul className="space-y-2">
               <li><a href="#" className="text-sm text-muted-foreground hover:text-foreground transition-colors">Features</a></li>
               <li><a href="#" className="text-sm text-muted-foreground hover:text-foreground transition-colors">Pricing</a></li>
-              <li><a href="#" className="text-sm text-muted-foreground hover:text-foreground transition-colors">How Genie Works</a></li>
-              <li><a href="#" className="text-sm text-muted-foreground hover:text-foreground transition-colors">Case Studies</a></li>
+              <li><a href="#" className="text-sm text-muted-foreground hover:text-foreground transition-colors">How It Works</a></li>
             </ul>
           </div>
 
@@ -57,7 +56,6 @@ const Footer = () => {
             <ul className="space-y-2">
               <li><a href="#" className="text-sm text-muted-foreground hover:text-foreground transition-colors">About</a></li>
               <li><a href="#" className="text-sm text-muted-foreground hover:text-foreground transition-colors">Contact</a></li>
-              <li><a href="#" className="text-sm text-muted-foreground hover:text-foreground transition-colors">Careers</a></li>
               <li><a href="#" className="text-sm text-muted-foreground hover:text-foreground transition-colors">Legal</a></li>
             </ul>
           </div>
