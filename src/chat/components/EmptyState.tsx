@@ -78,7 +78,7 @@ export function EmptyState({ hasProject, projectName, onSend, onConnectProject }
             src="/genie-logo-2.png"
             alt="Genie"
             style={{
-              width: 46, height: 46, objectFit: "contain",
+              width: 36, height: 36, objectFit: "contain",
               position: "relative", zIndex: 1,
               animation: "g-logo-breathe 3.2s ease infinite",
             }}
