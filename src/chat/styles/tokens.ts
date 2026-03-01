@@ -148,13 +148,17 @@ export const GLOBAL_STYLES = `
   @keyframes g-pulse  { 0%,100%{opacity:1;transform:scale(1)} 50%{opacity:0.5;transform:scale(0.95)} }
   @keyframes g-bounce { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-5px)} }
   @keyframes g-shimmer{ 0%{background-position:-200% 0} 100%{background-position:200% 0} }
-  @keyframes g-glow-pulse { 0%,100%{box-shadow:0 0 20px var(--p-glow)} 50%{box-shadow:0 0 40px rgba(124,92,255,0.4), 0 0 80px rgba(124,92,255,0.15)} }
+  @keyframes g-glow-pulse { 0%,100%{box-shadow:0 0 8px rgba(124,92,255,0.35)} 50%{box-shadow:0 0 16px rgba(124,92,255,0.55), 0 0 28px rgba(124,92,255,0.2)} }
   @keyframes g-orbit  { from{transform:rotate(0deg) translateX(18px) rotate(0deg)} to{transform:rotate(360deg) translateX(18px) rotate(-360deg)} }
   @keyframes g-orbit-md{ from{transform:rotate(0deg) translateX(26px) rotate(0deg)} to{transform:rotate(360deg) translateX(26px) rotate(-360deg)} }
   @keyframes g-orbit-lg{ from{transform:rotate(0deg) translateX(42px) rotate(0deg)} to{transform:rotate(360deg) translateX(42px) rotate(-360deg)} }
   @keyframes g-logo-breathe {
     0%,100% { transform:scale(1);    filter:drop-shadow(0 0 6px rgba(124,92,255,0.5))  drop-shadow(0 2px 6px rgba(0,0,0,0.5)); }
     50%     { transform:scale(1.07); filter:drop-shadow(0 0 18px rgba(124,92,255,0.9)) drop-shadow(0 4px 10px rgba(0,0,0,0.4)); }
+  }
+  @keyframes g-card-glow {
+    0%,100% { box-shadow: 0 0 8px rgba(124,92,255,0.3),  0 0 0 1px rgba(124,92,255,0.08), inset 0 1px 0 rgba(255,255,255,0.07); }
+    50%     { box-shadow: 0 0 22px rgba(124,92,255,0.6),  0 0 0 1px rgba(124,92,255,0.18), inset 0 1px 0 rgba(255,255,255,0.10); }
   }
   @keyframes g-halo-pulse {
     0%,100% { opacity:0.45; transform:scale(1); }

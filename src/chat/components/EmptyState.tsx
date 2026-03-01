@@ -40,14 +40,6 @@ export function EmptyState({ hasProject, projectName, onSend, onConnectProject }
       {/* Logo + orbital rings */}
       <div style={{ position: "relative", width: 72, height: 72, marginBottom: 32 }}>
 
-        {/* Outer diffuse halo glow */}
-        <div style={{
-          position: "absolute",
-          inset: 0, borderRadius: "50%", pointerEvents: "none",
-          background: "radial-gradient(circle, rgba(124,92,255,0.14) 0%, transparent 70%)",
-          animation: "g-halo-pulse 3s ease infinite",
-        }} />
-
         {/* Orbital ring */}
         <div style={{
           position: "absolute", inset: -26,
@@ -60,7 +52,7 @@ export function EmptyState({ hasProject, projectName, onSend, onConnectProject }
           background: "linear-gradient(145deg, rgba(124,92,255,0.18) 0%, rgba(8,7,18,0.95) 100%)",
           border: "1px solid rgba(124,92,255,0.32)",
           display: "flex", alignItems: "center", justifyContent: "center",
-          boxShadow: "0 0 0 1px rgba(124,92,255,0.08), 0 8px 32px rgba(124,92,255,0.22), inset 0 1px 0 rgba(255,255,255,0.07)",
+          animation: "g-card-glow 3.2s ease infinite",
         }}>
           {/* Inner radial glow behind logo */}
           <div style={{
