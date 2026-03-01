@@ -43,8 +43,8 @@ export function EmptyState({ hasProject, projectName, onSend, onConnectProject }
         {/* Outer diffuse halo glow */}
         <div style={{
           position: "absolute",
-          inset: -28, borderRadius: "50%", pointerEvents: "none",
-          background: "radial-gradient(circle, rgba(124,92,255,0.18) 0%, transparent 68%)",
+          inset: -16, borderRadius: "50%", pointerEvents: "none",
+          background: "radial-gradient(circle, rgba(124,92,255,0.14) 0%, transparent 70%)",
           animation: "g-halo-pulse 3s ease infinite",
         }} />
 
