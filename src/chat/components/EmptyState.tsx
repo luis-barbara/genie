@@ -38,7 +38,7 @@ export function EmptyState({ hasProject, projectName, onSend, onConnectProject }
   return (
     <div style={{ display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center", flex: 1, padding: "40px 20px", textAlign: "center" }}>
       {/* Logo + orbital rings */}
-      <div style={{ position: "relative", width: 72, height: 72, marginBottom: 68 }}>
+      <div style={{ position: "relative", width: 72, height: 72, marginBottom: 32 }}>
 
         {/* Outer diffuse halo glow */}
         <div style={{
@@ -48,28 +48,15 @@ export function EmptyState({ hasProject, projectName, onSend, onConnectProject }
           animation: "g-halo-pulse 3s ease infinite",
         }} />
 
-        {/* Orbital ring 1 — solid, matches orbit radius */}
+        {/* Orbital ring */}
         <div style={{
-          position: "absolute", inset: -42, borderRadius: "50%",
-          border: "1px solid rgba(124,92,255,0.18)",
+          position: "absolute", inset: -12,
+          borderRadius: "50%", border: "1px solid rgba(124,92,255,0.15)",
         }} />
-
-        {/* Orbital ring 2 — dashed, larger */}
-        <div style={{
-          position: "absolute", inset: -54, borderRadius: "50%",
-          border: "1px dashed rgba(124,92,255,0.08)",
-        }} />
-
-        {/* Orbiting dots on ring 1 */}
-        <div style={{ position: "absolute", inset: -42, borderRadius: "50%" }}>
-          <div className="g-orbit-dot" style={{ animation: "g-orbit-lg 3s linear infinite", opacity: 0.9 }} />
-          <div className="g-orbit-dot" style={{ animation: "g-orbit-lg 3s linear 1s infinite", opacity: 0.6, background: "var(--cyan)" }} />
-          <div className="g-orbit-dot" style={{ animation: "g-orbit-lg 3s linear 2s infinite", opacity: 0.4, background: "var(--green)" }} />
-        </div>
 
         {/* Logo card */}
         <div style={{
-          width: 72, height: 72, borderRadius: 22, position: "relative", overflow: "hidden",
+          width: 72, height: 72, borderRadius: 22, position: "relative",
           background: "linear-gradient(145deg, rgba(124,92,255,0.18) 0%, rgba(8,7,18,0.95) 100%)",
           border: "1px solid rgba(124,92,255,0.32)",
           display: "flex", alignItems: "center", justifyContent: "center",
@@ -96,6 +83,13 @@ export function EmptyState({ hasProject, projectName, onSend, onConnectProject }
               animation: "g-logo-breathe 3.2s ease infinite",
             }}
           />
+        </div>
+
+        {/* Orbiting dots — rendered after card so they appear on top */}
+        <div style={{ position: "absolute", inset: -12, borderRadius: "50%" }}>
+          <div className="g-orbit-dot" />
+          <div className="g-orbit-dot" />
+          <div className="g-orbit-dot" />
         </div>
       </div>
 
