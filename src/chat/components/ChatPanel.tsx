@@ -477,7 +477,7 @@ function ChatPanelInner({ hasProject = false, project = null, onConnectProject }
           />
           <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", padding: "8px 2px 0" }}>
             <ModelSelector selected={model} onSelect={setModel} />
-            <span style={{ fontSize: 10, color: "var(--text-3)", opacity: 0.35, fontFamily: "var(--mono)" }}>⌘K commands · ↵ send · ⇧↵ newline</span>
+            <span style={{ fontSize: 10, color: "var(--text-2)", opacity: 0.6, fontFamily: "var(--mono)" }}>⌘K commands · ↵ send · ⇧↵ newline</span>
           </div>
         </div>
 
@@ -515,7 +515,7 @@ function ChatPanelInner({ hasProject = false, project = null, onConnectProject }
             <p style={{ fontSize: 13, fontWeight: 600, maxWidth: 200, overflow: "hidden", textOverflow: "ellipsis", whiteSpace: "nowrap" }}>
               {activeConv?.title ?? "Genie"}
             </p>
-            <p style={{ fontSize: 10.5, color: "var(--text-3)" }}>
+            <p style={{ fontSize: 10.5, color: "var(--text-2)" }}>
               {messages.filter((m) => m.role !== "system").length} messages
               {effectiveProject && <> · <span style={{ color: "rgba(124,92,255,0.7)" }}>{effectiveProject.name}</span></>}
             </p>

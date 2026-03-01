@@ -70,9 +70,10 @@ export function EmptyState({ hasProject, projectName, onSend, onConnectProject }
 
       {/* Rotating headline */}
       <div style={{ height: 42, overflow: "hidden", marginBottom: 20 }}>
-        <h2 key={animKey} className="a-up g-serif" style={{
-          fontSize: 28, fontWeight: 400, fontStyle: "italic",
-          color: "var(--text)", letterSpacing: "-0.01em", lineHeight: 1.3,
+        <h2 key={animKey} className="a-up" style={{
+          fontSize: 26, fontWeight: 600,
+          color: "var(--text)", letterSpacing: "-0.02em", lineHeight: 1.3,
+          fontFamily: "var(--font)",
         }}>
           {ROTATING[rotIdx]}
         </h2>
@@ -81,7 +82,7 @@ export function EmptyState({ hasProject, projectName, onSend, onConnectProject }
       <p style={{ fontSize: 13.5, color: "var(--text-2)", marginBottom: 28, maxWidth: 320, lineHeight: 1.65 }}>
         {hasProject
           ? `Genie has context on ${projectName ?? "your project"}. Ask anything.`
-          : "Genie helps you improve products that already exist — no starting from scratch."}
+          : null}
       </p>
 
       {/* Quick chips */}

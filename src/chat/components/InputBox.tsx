@@ -23,7 +23,7 @@ export function ModelSelector({ selected, onSelect }: {
           <TierIcon tier={selected.tier} />
         </span>
         <span>{selected.label}</span>
-        <ChevronDown size={10} style={{ color: "var(--text-3)", transition: "transform 0.2s", transform: open ? "rotate(180deg)" : "none" }} />
+        <ChevronDown size={10} style={{ color: "var(--text-2)", transition: "transform 0.2s", transform: open ? "rotate(180deg)" : "none" }} />
       </button>
 
       {open && (
@@ -34,7 +34,7 @@ export function ModelSelector({ selected, onSelect }: {
             borderRadius: "var(--r-xl)", overflow: "hidden",
           }}>
             <div style={{ padding: "10px 14px 8px", borderBottom: "1px solid var(--border)" }}>
-              <p style={{ fontSize: 9.5, fontWeight: 700, letterSpacing: "0.1em", textTransform: "uppercase", color: "var(--text-3)" }}>Select Model</p>
+              <p style={{ fontSize: 9.5, fontWeight: 700, letterSpacing: "0.1em", textTransform: "uppercase", color: "var(--text-2)" }}>Select Model</p>
             </div>
             {MODELS.map((m) => {
               const isActive = selected.id === m.id;
@@ -60,14 +60,14 @@ export function ModelSelector({ selected, onSelect }: {
                       {isActive && <Check size={11} style={{ color: tierColor, marginLeft: "auto" }} />}
                     </div>
                     <div style={{ display: "flex", gap: 8, marginTop: 2 }}>
-                      <span style={{ fontSize: 11, color: "var(--text-3)" }}>{m.tagline}</span>
+                      <span style={{ fontSize: 11, color: "var(--text-2)" }}>{m.tagline}</span>
                     </div>
                   </div>
                 </button>
               );
             })}
             <div style={{ padding: "6px 14px 8px", borderTop: "1px solid var(--border)", textAlign: "center" }}>
-              <p style={{ fontSize: 9.5, color: "var(--text-3)" }}>Powered by Claude · Anthropic</p>
+              <p style={{ fontSize: 9.5, color: "var(--text-2)" }}>Powered by Claude · Anthropic</p>
             </div>
           </div>
         </>
@@ -90,6 +90,7 @@ export function InputBox({
   onPaletteOpen: () => void; focused: boolean; setFocused: (v: boolean) => void;
 }) {
   const textareaRef = useRef<HTMLTextAreaElement>(null);
+  const attachMenuRef = useRef<HTMLDivElement>(null);
   const [showAttachMenu, setShowAttachMenu] = useState(false);
   const [showSlashMenu, setShowSlashMenu] = useState(false);
   const [slashFilter, setSlashFilter] = useState("");
@@ -102,6 +103,17 @@ export function InputBox({
     const ta = textareaRef.current;
     if (ta) { ta.style.height = "auto"; ta.style.height = `${Math.min(ta.scrollHeight, 148)}px`; }
   }, [input]);
+
+  useEffect(() => {
+    if (!showAttachMenu) return;
+    const handler = (e: MouseEvent) => {
+      if (attachMenuRef.current && !attachMenuRef.current.contains(e.target as Node)) {
+        setShowAttachMenu(false);
+      }
+    };
+    document.addEventListener("mousedown", handler);
+    return () => document.removeEventListener("mousedown", handler);
+  }, [showAttachMenu]);
 
   const handleChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
     const val = e.target.value;
@@ -151,7 +163,7 @@ export function InputBox({
                 onMouseLeave={(e) => (e.currentTarget.style.background = "transparent")}>
                 <span style={{ fontSize: 12, fontFamily: "var(--mono)", color: "var(--p-light)", minWidth: 72 }}>{cmd.command}</span>
                 <span style={{ fontSize: 12.5, color: "var(--text)" }}>{cmd.label}</span>
-                <span style={{ fontSize: 11, color: "var(--text-3)", marginLeft: 4 }}>— {cmd.description}</span>
+                <span style={{ fontSize: 11, color: "var(--text-2)", marginLeft: 4 }}>— {cmd.description}</span>
               </button>
             ))}
           </div>
@@ -178,30 +190,26 @@ export function InputBox({
       <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", padding: "6px 10px 10px", position: "relative", zIndex: 1 }}>
         <div style={{ display: "flex", alignItems: "center", gap: 2 }}>
           {/* Attach */}
-          <div style={{ position: "relative" }}>
+          <div ref={attachMenuRef} style={{ position: "relative" }}>
             <button className={cn("g-icon-btn", showAttachMenu ? "active" : "")} onClick={() => setShowAttachMenu(!showAttachMenu)}>
               <Plus size={16} style={{ transition: "transform 0.2s", transform: showAttachMenu ? "rotate(45deg)" : "none" }} />
             </button>
             {showAttachMenu && (
-              <>
-                <div style={{ position: "fixed", inset: 0, zIndex: 40 }} onClick={() => setShowAttachMenu(false)} />
-                <div className="g-glass-2 a-up" style={{ position: "absolute", bottom: "calc(100% + 8px)", left: 0, width: 225, zIndex: 50, borderRadius: "var(--r-xl)", overflow: "hidden", padding: "6px 0" }}>
-                  {/* eslint-disable-next-line react-hooks/refs */}
-                  {attachItems.map((item) => (
-                    <button key={item.label} onClick={item.action} style={{ width: "100%", display: "flex", alignItems: "center", gap: 10, padding: "8px 12px", background: "transparent", border: "none", cursor: "pointer", fontFamily: "var(--font)", textAlign: "left", transition: "background 0.1s" }}
-                      onMouseEnter={(e) => (e.currentTarget.style.background = "rgba(255,255,255,0.04)")}
-                      onMouseLeave={(e) => (e.currentTarget.style.background = "transparent")}>
-                      <div style={{ width: 30, height: 30, borderRadius: "var(--r-sm)", background: "var(--surface-2)", border: "1px solid var(--border)", display: "flex", alignItems: "center", justifyContent: "center" }}>
-                        <item.icon size={13} style={{ color: "var(--text-3)" }} />
-                      </div>
-                      <div>
-                        <p style={{ fontSize: 12.5, fontWeight: 500, color: "var(--text)" }}>{item.label}</p>
-                        <p style={{ fontSize: 10.5, color: "var(--text-3)" }}>{item.desc}</p>
-                      </div>
-                    </button>
-                  ))}
-                </div>
-              </>
+              <div className="g-glass-2 a-up" style={{ position: "absolute", bottom: "calc(100% + 8px)", left: 0, width: 240, zIndex: 200, borderRadius: "var(--r-xl)", overflow: "hidden", padding: "6px 0", boxShadow: "var(--shadow-lg)" }}>
+                {attachItems.map((item) => (
+                  <button key={item.label} onClick={item.action} style={{ width: "100%", display: "flex", alignItems: "center", gap: 10, padding: "9px 14px", background: "transparent", border: "none", cursor: "pointer", fontFamily: "var(--font)", textAlign: "left", transition: "background 0.1s" }}
+                    onMouseEnter={(e) => (e.currentTarget.style.background = "rgba(124,92,255,0.08)")}
+                    onMouseLeave={(e) => (e.currentTarget.style.background = "transparent")}>
+                    <div style={{ width: 32, height: 32, borderRadius: "var(--r)", background: "rgba(124,92,255,0.1)", border: "1px solid rgba(124,92,255,0.2)", display: "flex", alignItems: "center", justifyContent: "center", flexShrink: 0 }}>
+                      <item.icon size={14} style={{ color: "var(--p-light)" }} />
+                    </div>
+                    <div>
+                      <p style={{ fontSize: 13, fontWeight: 600, color: "var(--text)" }}>{item.label}</p>
+                      <p style={{ fontSize: 11, color: "var(--text-2)", marginTop: 1 }}>{item.desc}</p>
+                    </div>
+                  </button>
+                ))}
+              </div>
             )}
           </div>
           <div style={{ width: 1, height: 16, background: "var(--border-2)", margin: "0 4px" }} />

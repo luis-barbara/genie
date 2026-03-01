@@ -1,4 +1,3 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500&display=swap');
 @import "tailwindcss";
 
 /* ============================================
@@ -7,8 +6,8 @@
 
 @theme {
   /* Typography */
-  --font-sans: 'Inter', system-ui, sans-serif;
-  --font-mono: 'JetBrains Mono', monospace;
+  --font-sans: 'DM Sans', system-ui, sans-serif;
+  --font-mono: 'DM Mono', 'Fira Code', monospace;
 
   /* Border Radius */
   --radius-sm: 0.25rem;
@@ -22,72 +21,72 @@
   --spacing-22: 5.5rem;
 
   /* Shadows */
-  --shadow-soft: 0 2px 8px -2px hsl(222 47% 4% / 0.1), 0 4px 16px -4px hsl(222 47% 4% / 0.1);
-  --shadow-soft-lg: 0 4px 12px -2px hsl(222 47% 4% / 0.15), 0 8px 24px -4px hsl(222 47% 4% / 0.1);
-  --shadow-glow: 0 0 20px hsl(174 72% 56% / 0.3);
-  --shadow-glow-lg: 0 0 40px hsl(174 72% 56% / 0.4);
-  --shadow-card: 0 1px 3px hsl(222 47% 4% / 0.1), 0 1px 2px hsl(222 47% 4% / 0.06);
-  --shadow-card-hover: 0 4px 12px hsl(222 47% 4% / 0.15), 0 2px 4px hsl(222 47% 4% / 0.1);
+  --shadow-soft: 0 2px 8px -2px rgba(0,0,0,0.5), 0 4px 16px -4px rgba(0,0,0,0.4);
+  --shadow-soft-lg: 0 4px 12px -2px rgba(0,0,0,0.6), 0 8px 24px -4px rgba(0,0,0,0.5);
+  --shadow-glow: 0 0 20px hsl(258 90% 62% / 0.35);
+  --shadow-glow-lg: 0 0 40px hsl(258 90% 62% / 0.45);
+  --shadow-card: 0 1px 3px rgba(0,0,0,0.5), 0 1px 2px rgba(0,0,0,0.4);
+  --shadow-card-hover: 0 4px 16px rgba(0,0,0,0.5), 0 2px 4px rgba(0,0,0,0.4);
 
   /* Colors */
-  --color-background: hsl(222 47% 6%);
-  --color-foreground: hsl(210 40% 98%);
+  --color-background: hsl(252 18% 4%);
+  --color-foreground: hsl(248 67% 96%);
 
-  --color-card: hsl(222 47% 8%);
-  --color-card-foreground: hsl(210 40% 98%);
+  --color-card: hsl(252 18% 7%);
+  --color-card-foreground: hsl(248 67% 96%);
 
-  --color-popover: hsl(222 47% 8%);
-  --color-popover-foreground: hsl(210 40% 98%);
+  --color-popover: hsl(252 18% 7%);
+  --color-popover-foreground: hsl(248 67% 96%);
 
-  --color-primary: hsl(174 72% 56%);
-  --color-primary-foreground: hsl(222 47% 6%);
+  --color-primary: hsl(258 90% 62%);
+  --color-primary-foreground: hsl(248 67% 97%);
 
-  --color-secondary: hsl(222 30% 14%);
-  --color-secondary-foreground: hsl(210 40% 98%);
+  --color-secondary: hsl(252 18% 11%);
+  --color-secondary-foreground: hsl(248 67% 96%);
 
-  --color-muted: hsl(222 30% 12%);
-  --color-muted-foreground: hsl(215 20% 55%);
+  --color-muted: hsl(252 18% 9%);
+  --color-muted-foreground: hsl(243 7% 53%);
 
-  --color-accent: hsl(174 72% 56%);
-  --color-accent-foreground: hsl(222 47% 6%);
+  --color-accent: hsl(191 100% 50%);
+  --color-accent-foreground: hsl(252 18% 4%);
 
-  --color-destructive: hsl(0 72% 51%);
-  --color-destructive-foreground: hsl(210 40% 98%);
+  --color-destructive: hsl(350 84% 60%);
+  --color-destructive-foreground: hsl(248 67% 96%);
 
   --color-warning: hsl(38 92% 50%);
-  --color-warning-foreground: hsl(222 47% 6%);
+  --color-warning-foreground: hsl(252 18% 4%);
 
-  --color-success: hsl(142 71% 45%);
-  --color-success-foreground: hsl(222 47% 6%);
+  --color-success: hsl(157 68% 45%);
+  --color-success-foreground: hsl(252 18% 4%);
 
-  --color-border: hsl(222 30% 18%);
-  --color-input: hsl(222 30% 14%);
-  --color-ring: hsl(174 72% 56%);
+  --color-border: hsl(252 18% 19%);
+  --color-input: hsl(252 18% 11%);
+  --color-ring: hsl(258 100% 68%);
 
   /* Severity */
-  --color-severity-critical: hsl(0 72% 51%);
+  --color-severity-critical: hsl(350 84% 60%);
   --color-severity-high: hsl(25 95% 53%);
   --color-severity-medium: hsl(38 92% 50%);
-  --color-severity-low: hsl(215 20% 55%);
+  --color-severity-low: hsl(243 7% 53%);
 
   /* Status */
-  --color-status-open: hsl(0 72% 51%);
+  --color-status-open: hsl(350 84% 60%);
   --color-status-in-progress: hsl(38 92% 50%);
-  --color-status-resolved: hsl(142 71% 45%);
+  --color-status-resolved: hsl(157 68% 45%);
 
   /* Genie-specific */
-  --color-genie-surface: hsl(222 47% 10%);
-  --color-genie-surface-hover: hsl(222 40% 14%);
+  --color-genie-surface: hsl(252 18% 9%);
+  --color-genie-surface-hover: hsl(252 18% 13%);
 
   /* Sidebar */
-  --color-sidebar: hsl(222 47% 5%);
-  --color-sidebar-foreground: hsl(215 20% 65%);
-  --color-sidebar-primary: hsl(174 72% 56%);
-  --color-sidebar-primary-foreground: hsl(222 47% 6%);
-  --color-sidebar-accent: hsl(222 40% 12%);
-  --color-sidebar-accent-foreground: hsl(210 40% 98%);
-  --color-sidebar-border: hsl(222 30% 14%);
-  --color-sidebar-ring: hsl(174 72% 56%);
+  --color-sidebar: hsl(252 18% 3%);
+  --color-sidebar-foreground: hsl(243 7% 65%);
+  --color-sidebar-primary: hsl(258 100% 68%);
+  --color-sidebar-primary-foreground: hsl(248 67% 96%);
+  --color-sidebar-accent: hsl(252 18% 11%);
+  --color-sidebar-accent-foreground: hsl(248 67% 96%);
+  --color-sidebar-border: hsl(252 18% 11%);
+  --color-sidebar-ring: hsl(258 100% 68%);
 
   /* Animations */
   --animate-accordion-down: accordion-down 0.2s ease-out;
@@ -147,9 +146,9 @@
    Custom Properties (non-theme)
    ============================================ */
 :root {
-  --genie-gradient: linear-gradient(135deg, hsl(174 72% 56%) 0%, hsl(200 80% 50%) 100%);
-  --genie-glow: 0 0 40px hsl(174 72% 56% / 0.3);
-  --genie-border-subtle: 222 30% 16%;
+  --genie-gradient: linear-gradient(135deg, hsl(258 90% 62%), hsl(258 90% 62%));
+  --genie-glow: 0 0 40px hsl(258 90% 62% / 0.35);
+  --genie-border-subtle: 252 18% 16%;
   --sidebar-width: 15rem;
   --sidebar-width-collapsed: 3.5rem;
 }
@@ -169,8 +168,14 @@ code, pre, .font-mono {
   @apply font-mono;
 }
 
-*:focus-visible {
+*:focus-visible:not(.genie *) {
   @apply outline-none ring-2 ring-ring ring-offset-2 ring-offset-background;
+}
+
+/* Chat panel manages its own focus styles */
+.genie *:focus-visible {
+  outline: none;
+  box-shadow: none;
 }
 
 /* ============================================
@@ -219,8 +224,7 @@ code, pre, .font-mono {
   @apply shadow-soft-lg;
 }
 .btn-gradient {
-  @apply text-primary-foreground hover:opacity-90 shadow-soft transition-all duration-150;
-  background-image: var(--genie-gradient);
+  @apply bg-primary text-primary-foreground hover:bg-primary/90 shadow-soft transition-all duration-150;
 }
 .btn-gradient:hover {
   @apply shadow-glow;
@@ -297,10 +301,11 @@ code, pre, .font-mono {
    ============================================ */
 .genie-gradient-text {
   @apply bg-clip-text text-transparent;
-  background-image: var(--genie-gradient);
+  background-image: linear-gradient(135deg, hsl(258 100% 68%), hsl(280 90% 65%));
 }
 .genie-gradient-bg {
-  background-image: var(--genie-gradient);
+  background-color: hsl(258 90% 62%);
+  font-weight: 700;
 }
 .genie-glow {
   box-shadow: var(--genie-glow);

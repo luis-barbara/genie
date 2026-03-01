@@ -58,7 +58,7 @@ export interface GenieModel {
   contextK: number;
 }
 export const MODELS: GenieModel[] = [
-  { id: "genie-fast", label: "Genie Fast", tagline: "Quick answers, everyday tasks",    apiModel: "claude-haiku-4-5-20251001", tier: "fast", inputCostPer1M: 80,   outputCostPer1M: 400,  contextK: 200 },
+  { id: "genie-lite", label: "Genie Lite", tagline: "Quick answers, everyday tasks",    apiModel: "claude-haiku-4-5-20251001", tier: "fast", inputCostPer1M: 80,   outputCostPer1M: 400,  contextK: 200 },
   { id: "genie-pro",  label: "Genie Pro",  tagline: "Best balance for development",     apiModel: "claude-sonnet-4-20250514",  tier: "pro",  inputCostPer1M: 300,  outputCostPer1M: 1500, contextK: 200, badge: "Recommended" },
   { id: "genie-max",  label: "Genie Max",  tagline: "Maximum power for complex tasks",  apiModel: "claude-opus-4-20250514",    tier: "max",  inputCostPer1M: 1500, outputCostPer1M: 7500, contextK: 200 },
 ];

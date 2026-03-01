@@ -61,7 +61,7 @@ export function ConvSidebar({
 
           {/* Search */}
           <div style={{ display: "flex", alignItems: "center", gap: 7, padding: "7px 10px", borderRadius: "var(--r)", background: "var(--surface-2)", border: "1px solid var(--border)" }}>
-            <Search size={11} style={{ color: "var(--text-3)" }} />
+            <Search size={11} style={{ color: "var(--text-2)" }} />
             <input value={q} onChange={(e) => setQ(e.target.value)} placeholder="Search chats…"
               style={{ flex: 1, background: "transparent", border: "none", outline: "none", fontSize: 12, color: "var(--text)", fontFamily: "var(--font)" }} />
           </div>
@@ -73,7 +73,7 @@ export function ConvSidebar({
                 padding: "4px 11px", borderRadius: "var(--r-sm)", fontSize: 11, fontWeight: 500,
                 cursor: "pointer", border: "none", fontFamily: "var(--font)",
                 background: (tab === "Archived") === showArchived ? "var(--p-glow-2)" : "transparent",
-                color: (tab === "Archived") === showArchived ? "var(--p-light)" : "var(--text-3)",
+                color: (tab === "Archived") === showArchived ? "var(--p-light)" : "var(--text-2)",
                 transition: "all 0.15s",
               }}>{tab}</button>
             ))}
@@ -112,7 +112,7 @@ export function ConvSidebar({
           )}
           {filtered.length === 0 && (
             <div style={{ padding: "36px 14px", textAlign: "center" }}>
-              <p style={{ fontSize: 12.5, color: "var(--text-3)" }}>{showArchived ? "No archived chats" : "No conversations yet"}</p>
+              <p style={{ fontSize: 12.5, color: "var(--text-2)" }}>{showArchived ? "No archived chats" : "No conversations yet"}</p>
               {!showArchived && (
                 <button onClick={onNew} style={{ marginTop: 10, padding: "6px 14px", borderRadius: "var(--r-full)", background: "var(--p-glow-2)", border: "1px solid rgba(124,92,255,0.25)", color: "var(--p-light)", fontSize: 12, cursor: "pointer", fontFamily: "var(--font)" }}>Start a chat</button>
               )}
@@ -126,7 +126,7 @@ export function ConvSidebar({
 
 function SectionLabel({ children, style }: { children: React.ReactNode; style?: React.CSSProperties }) {
   return (
-    <p style={{ fontSize: 9.5, fontWeight: 700, letterSpacing: "0.08em", textTransform: "uppercase", color: "var(--text-3)", padding: "4px 8px", marginBottom: 2, ...style }}>
+    <p style={{ fontSize: 9.5, fontWeight: 700, letterSpacing: "0.08em", textTransform: "uppercase", color: "var(--text-2)", padding: "4px 8px", marginBottom: 2, ...style }}>
       {children}
     </p>
   );
@@ -158,11 +158,11 @@ function SidebarRow({ conv, isActive, onSelect, menuOpen, onMenu, onArchive, onD
             {conv.pinned && <Pin size={9} style={{ color: "var(--p-light)", opacity: 0.6, flexShrink: 0 }} />}
           </div>
           {last && (
-            <p style={{ fontSize: 11, color: "var(--text-3)", overflow: "hidden", textOverflow: "ellipsis", whiteSpace: "nowrap", marginTop: 2 }}>
+            <p style={{ fontSize: 11, color: "var(--text-2)", overflow: "hidden", textOverflow: "ellipsis", whiteSpace: "nowrap", marginTop: 2 }}>
               {last.role === "user" ? "You: " : ""}{last.content.slice(0, 48)}
             </p>
           )}
-          <span style={{ fontSize: 10, color: "var(--text-3)", opacity: 0.4 }}>{timeAgo(conv.updatedAt)}</span>
+          <span style={{ fontSize: 10, color: "var(--text-3)", opacity: 0.8 }}>{timeAgo(conv.updatedAt)}</span>
         </div>
         {hovered && (
           <button onClick={(e) => { e.stopPropagation(); onMenu(); }} className="g-icon-btn" style={{ flexShrink: 0, padding: 4 }}>

@@ -34,10 +34,10 @@ const HowItWorks = () => {
           {workflowSteps.map((step) => (
             <div key={step.step} className={`flex flex-col items-center text-center relative z-10 scroll-reveal ${isVisible ? 'is-visible' : ''} stagger-${step.step}`}>
               <div className="relative mb-4">
-                <div className="h-24 w-24 rounded-2xl genie-gradient-bg flex items-center justify-center shadow-lg shadow-primary/20">
-                  <step.icon className="h-10 w-10 text-primary-foreground" />
+                <div className="h-24 w-24 rounded-2xl bg-secondary border border-white/10 flex items-center justify-center shadow-md">
+                  <step.icon className="h-10 w-10 text-primary" />
                 </div>
-                <div className="absolute -top-2 -right-2 h-8 w-8 rounded-full bg-background ring-2 ring-primary flex items-center justify-center text-sm font-bold text-primary">
+                <div className="absolute -top-2 -right-2 h-7 w-7 rounded-full bg-background border border-white/20 flex items-center justify-center text-xs font-bold text-foreground/70">
                   {step.step}
                 </div>
               </div>

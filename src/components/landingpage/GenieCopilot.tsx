@@ -142,7 +142,7 @@ const GenieCopilot = () => {
           <div className="grid grid-cols-2 gap-3">
             {monitoring.map(({ icon: Icon, label }, idx) => (
               <div key={idx} className="flex items-center gap-2 text-sm">
-                <Icon className="h-4 w-4 text-primary shrink-0" />
+                <Icon className="h-4 w-4 text-success shrink-0" />
                 <span>{label}</span>
               </div>
             ))}
@@ -162,7 +162,7 @@ const GenieCopilot = () => {
           <div className="grid grid-cols-2 gap-3">
             {safepipeline.map(({ icon: Icon, label }, idx) => (
               <div key={idx} className="flex items-center gap-2 text-sm">
-                <Icon className="h-4 w-4 text-primary shrink-0" />
+                <Icon className="h-4 w-4 text-warning shrink-0" />
                 <span>{label}</span>
               </div>
             ))}

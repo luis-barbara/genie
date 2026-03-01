@@ -69,7 +69,7 @@ export default function AuthPage() {
         password: loginData.password,
       });
       if (error) throw error;
-      router.push('/');
+      router.push('/app');
     } catch (err) {
       setError(err instanceof Error ? err.message : 'Sign in failed');
     } finally {

@@ -8,12 +8,12 @@ const Header = () => {
       {/* Logo */}
       <Link href="/" className="flex items-center gap-4">
         <Image
-          src="/genie-logo.png"
+          src="/genie-logo-2.png"
           alt="Genie"
           width={32}
           height={32}
         />
-        <span className="text-2xl font-bold genie-gradient-text">Genie</span>
+        <span className="text-2xl font-bold text-foreground">Genie</span>
       </Link>
 
       {/* Navegação */}

@@ -11,7 +11,7 @@ const Pricing = () => {
   const [annual, setAnnual] = useState(false);
 
   const btnBase = "inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 h-10 px-4 py-2 w-full cursor-pointer";
-  const btnOutline = `${btnBase} border border-input bg-background hover:bg-accent hover:text-accent-foreground`;
+  const btnOutline = `${btnBase} border border-border/60 bg-background hover:bg-secondary hover:text-foreground`;
   const btnGradient = `${btnBase} genie-gradient-bg text-primary-foreground font-semibold hover:opacity-90 genie-glow transition-all duration-300`;
 
   return (
@@ -97,7 +97,7 @@ const Pricing = () => {
           </div>
 
           {/* Pro Plan */}
-          <div className={`relative flex flex-col p-6 rounded-2xl border-2 border-primary ring-1 ring-primary bg-card shadow-xl shadow-primary/10 scroll-reveal ${isVisible ? 'is-visible' : ''} stagger-2`}>
+          <div className={`relative flex flex-col p-6 rounded-2xl border-2 border-primary/70 ring-2 ring-primary/20 bg-card shadow-lg shadow-primary/15 scroll-reveal ${isVisible ? 'is-visible' : ''} stagger-2`}>
             <div className="absolute -top-3.5 left-1/2 -translate-x-1/2 px-3 py-1 rounded-full genie-gradient-bg text-primary-foreground text-xs font-semibold whitespace-nowrap">
               Recommended
             </div>

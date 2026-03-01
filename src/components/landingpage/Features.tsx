@@ -62,8 +62,8 @@ const Features = () => {
                 <div className="absolute inset-0 rounded-2xl bg-primary/5 opacity-0 group-hover:opacity-100 transition-opacity blur-xl" />
                 
                 <div className="relative">
-                    <div className="h-14 w-14 rounded-xl genie-gradient-bg flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300 shadow-lg shadow-primary/20">
-                    <pillar.icon className="h-7 w-7 text-primary-foreground" />
+                    <div className="h-14 w-14 rounded-xl bg-primary/10 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
+                    <pillar.icon className="h-7 w-7 text-primary" />
                     </div>
                     <h3 className="text-xl font-semibold mb-3">{pillar.title}</h3>
                     <p className="text-muted-foreground leading-relaxed">{pillar.description}</p>

@@ -1,5 +1,4 @@
 export const GLOBAL_STYLES = `
-  @import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&family=DM+Mono:wght@400;500&family=Instrument+Serif:ital@0;1&display=swap');
 
   :root {
     --bg:          #07070a;
@@ -15,8 +14,8 @@ export const GLOBAL_STYLES = `
     --border-2:    rgba(255,255,255,0.12);
     --border-glow: rgba(99,60,255,0.3);
     --text:        #f0eefc;
-    --text-2:      #7e7d90;
-    --text-3:      #3e3d50;
+    --text-2:      #8e8ca4;
+    --text-3:      #5e5c78;
     --text-dim:    rgba(240,238,252,0.4);
 
     --p:           #7c5cff;
@@ -99,7 +98,7 @@ export const GLOBAL_STYLES = `
     border: 1px solid var(--border);
   }
   .g-glass-2 {
-    background: var(--glass-2);
+    background: rgba(14,13,22,0.96);
     backdrop-filter: blur(32px) saturate(1.6);
     -webkit-backdrop-filter: blur(32px) saturate(1.6);
     border: 1px solid var(--border-2);
@@ -173,7 +172,6 @@ export const GLOBAL_STYLES = `
     border-radius: var(--r-xl);
     transition: border-color 0.25s, box-shadow 0.25s;
     position: relative;
-    overflow: hidden;
   }
   .g-input-wrap::before {
     content: '';
@@ -193,7 +191,7 @@ export const GLOBAL_STYLES = `
     width: 100%; color: var(--text); font-family: var(--font); font-size: 14.5px;
     line-height: 1.65; caret-color: var(--p-light); position: relative; z-index: 1;
   }
-  .g-textarea::placeholder { color: var(--text-3); }
+  .g-textarea::placeholder { color: var(--text-2); opacity: 0.5; }
 
   /* ---- Buttons ---- */
   .g-btn-send {
@@ -211,7 +209,7 @@ export const GLOBAL_STYLES = `
 
   .g-icon-btn {
     display: inline-flex; align-items: center; justify-content: center;
-    border-radius: var(--r); padding: 7px; color: var(--text-3);
+    border-radius: var(--r); padding: 7px; color: var(--text-2);
     transition: color 0.15s, background 0.15s, transform 0.15s;
     cursor: pointer; border: none; background: transparent;
   }

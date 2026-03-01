@@ -21,7 +21,7 @@ const Footer = () => {
                 width={32}
                 height={32}
               />
-              <span className="text-2xl font-bold text-white">Genie</span>
+              <span className="text-2xl font-bold text-foreground">Genie</span>
             </Link>
 
             <p className="text-sm text-muted-foreground max-w-xs">
