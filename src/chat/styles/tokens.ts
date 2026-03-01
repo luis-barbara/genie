@@ -150,6 +150,7 @@ export const GLOBAL_STYLES = `
   @keyframes g-shimmer{ 0%{background-position:-200% 0} 100%{background-position:200% 0} }
   @keyframes g-glow-pulse { 0%,100%{box-shadow:0 0 20px var(--p-glow)} 50%{box-shadow:0 0 40px rgba(124,92,255,0.4), 0 0 80px rgba(124,92,255,0.15)} }
   @keyframes g-orbit  { from{transform:rotate(0deg) translateX(18px) rotate(0deg)} to{transform:rotate(360deg) translateX(18px) rotate(-360deg)} }
+  @keyframes g-orbit-md{ from{transform:rotate(0deg) translateX(26px) rotate(0deg)} to{transform:rotate(360deg) translateX(26px) rotate(-360deg)} }
   @keyframes g-orbit-lg{ from{transform:rotate(0deg) translateX(42px) rotate(0deg)} to{transform:rotate(360deg) translateX(42px) rotate(-360deg)} }
   @keyframes g-logo-breathe {
     0%,100% { transform:scale(1);    filter:drop-shadow(0 0 6px rgba(124,92,255,0.5))  drop-shadow(0 2px 6px rgba(0,0,0,0.5)); }

@@ -50,7 +50,7 @@ export function EmptyState({ hasProject, projectName, onSend, onConnectProject }
 
         {/* Orbital ring */}
         <div style={{
-          position: "absolute", inset: -12,
+          position: "absolute", inset: -26,
           borderRadius: "50%", border: "1px solid rgba(124,92,255,0.15)",
         }} />
 
@@ -86,10 +86,10 @@ export function EmptyState({ hasProject, projectName, onSend, onConnectProject }
         </div>
 
         {/* Orbiting dots — rendered after card so they appear on top */}
-        <div style={{ position: "absolute", inset: -12, borderRadius: "50%" }}>
-          <div className="g-orbit-dot" />
-          <div className="g-orbit-dot" />
-          <div className="g-orbit-dot" />
+        <div style={{ position: "absolute", inset: -26, borderRadius: "50%" }}>
+          <div className="g-orbit-dot" style={{ animation: "g-orbit-md 3s linear infinite" }} />
+          <div className="g-orbit-dot" style={{ animation: "g-orbit-md 3s linear 1s infinite", background: "var(--cyan)", opacity: 0.5 }} />
+          <div className="g-orbit-dot" style={{ animation: "g-orbit-md 3s linear 2s infinite", background: "var(--green)", opacity: 0.3 }} />
         </div>
       </div>
 
