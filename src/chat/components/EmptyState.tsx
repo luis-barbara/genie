@@ -1,6 +1,6 @@
 "use client";
 import { useEffect, useState } from "react";
-import { PlugZap, Sparkles } from "lucide-react";
+import { PlugZap } from "lucide-react";
 import { QUICK_ACTIONS } from "../lib/types";
 
 const ROTATING = [
@@ -37,34 +37,65 @@ export function EmptyState({ hasProject, projectName, onSend, onConnectProject }
 
   return (
     <div style={{ display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center", flex: 1, padding: "40px 20px", textAlign: "center" }}>
-      {/* Orbital avatar */}
-      <div style={{ position: "relative", width: 72, height: 72, marginBottom: 28 }}>
-        {/* Ring */}
+      {/* Logo + orbital rings */}
+      <div style={{ position: "relative", width: 72, height: 72, marginBottom: 32 }}>
+
+        {/* Outer diffuse halo glow */}
         <div style={{
-          position: "absolute", inset: -12,
-          borderRadius: "50%", border: "1px solid rgba(124,92,255,0.12)",
-        }} />
-        <div style={{
-          position: "absolute", inset: -22,
-          borderRadius: "50%", border: "1px dashed rgba(124,92,255,0.07)",
+          position: "absolute",
+          inset: -28, borderRadius: "50%", pointerEvents: "none",
+          background: "radial-gradient(circle, rgba(124,92,255,0.18) 0%, transparent 68%)",
+          animation: "g-halo-pulse 3s ease infinite",
         }} />
 
-        {/* Orbiting dots */}
-        <div style={{ position: "absolute", inset: -12, borderRadius: "50%" }}>
+        {/* Orbital ring 1 — solid */}
+        <div style={{
+          position: "absolute", inset: -14, borderRadius: "50%",
+          border: "1px solid rgba(124,92,255,0.18)",
+        }} />
+
+        {/* Orbital ring 2 — dashed, larger */}
+        <div style={{
+          position: "absolute", inset: -26, borderRadius: "50%",
+          border: "1px dashed rgba(124,92,255,0.09)",
+        }} />
+
+        {/* Orbiting dots on ring 1 */}
+        <div style={{ position: "absolute", inset: -14, borderRadius: "50%" }}>
           <div className="g-orbit-dot" />
           <div className="g-orbit-dot" />
           <div className="g-orbit-dot" />
         </div>
 
-        {/* Center avatar */}
+        {/* Logo card */}
         <div style={{
-          width: 72, height: 72, borderRadius: 22,
-          background: "linear-gradient(135deg, rgba(124,92,255,0.25), rgba(0,212,255,0.12))",
-          border: "1px solid rgba(124,92,255,0.3)",
+          width: 72, height: 72, borderRadius: 22, position: "relative", overflow: "hidden",
+          background: "linear-gradient(145deg, rgba(124,92,255,0.18) 0%, rgba(8,7,18,0.95) 100%)",
+          border: "1px solid rgba(124,92,255,0.32)",
           display: "flex", alignItems: "center", justifyContent: "center",
-          boxShadow: "0 0 40px rgba(124,92,255,0.2), inset 0 1px 0 rgba(255,255,255,0.08)",
-        }} className="a-glow">
-          <Sparkles size={30} style={{ color: "var(--p-light)" }} />
+          boxShadow: "0 0 0 1px rgba(124,92,255,0.08), 0 8px 32px rgba(124,92,255,0.22), inset 0 1px 0 rgba(255,255,255,0.07)",
+        }}>
+          {/* Inner radial glow behind logo */}
+          <div style={{
+            position: "absolute", inset: 0, borderRadius: "inherit", pointerEvents: "none",
+            background: "radial-gradient(circle at 48% 38%, rgba(124,92,255,0.22) 0%, transparent 65%)",
+          }} />
+          {/* Subtle shimmer line */}
+          <div style={{
+            position: "absolute", top: 0, left: "10%", right: "10%", height: 1,
+            background: "linear-gradient(90deg, transparent, rgba(255,255,255,0.18), transparent)",
+            borderRadius: 1, pointerEvents: "none",
+          }} />
+          {/* Logo */}
+          <img
+            src="/genie-logo-2.png"
+            alt="Genie"
+            style={{
+              width: 46, height: 46, objectFit: "contain",
+              position: "relative", zIndex: 1,
+              animation: "g-logo-breathe 3.2s ease infinite",
+            }}
+          />
         </div>
       </div>
 

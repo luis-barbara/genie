@@ -150,6 +150,14 @@ export const GLOBAL_STYLES = `
   @keyframes g-shimmer{ 0%{background-position:-200% 0} 100%{background-position:200% 0} }
   @keyframes g-glow-pulse { 0%,100%{box-shadow:0 0 20px var(--p-glow)} 50%{box-shadow:0 0 40px rgba(124,92,255,0.4), 0 0 80px rgba(124,92,255,0.15)} }
   @keyframes g-orbit  { from{transform:rotate(0deg) translateX(18px) rotate(0deg)} to{transform:rotate(360deg) translateX(18px) rotate(-360deg)} }
+  @keyframes g-logo-breathe {
+    0%,100% { transform:scale(1);    filter:drop-shadow(0 0 6px rgba(124,92,255,0.5))  drop-shadow(0 2px 6px rgba(0,0,0,0.5)); }
+    50%     { transform:scale(1.07); filter:drop-shadow(0 0 18px rgba(124,92,255,0.9)) drop-shadow(0 4px 10px rgba(0,0,0,0.4)); }
+  }
+  @keyframes g-halo-pulse {
+    0%,100% { opacity:0.45; transform:scale(1); }
+    50%     { opacity:0.75; transform:scale(1.08); }
+  }
   @keyframes g-wave   { 0%,100%{transform:scaleY(0.3)} 50%{transform:scaleY(1)} }
   @keyframes g-token-count { from{opacity:0;transform:translateY(4px)} to{opacity:1;transform:translateY(0)} }
   @keyframes g-ctx-fill { from{width:0} to{width:var(--fill-w)} }
