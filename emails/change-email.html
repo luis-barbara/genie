@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Confirm your new email address</title>
+  <!--[if mso]>
+  <noscript>
+    <xml>
+      <o:OfficeDocumentSettings>
+        <o:PixelsPerInch>96</o:PixelsPerInch>
+      </o:OfficeDocumentSettings>
+    </xml>
+  </noscript>
+  <![endif]-->
+</head>
+<body style="margin:0;padding:0;background-color:#09090b;font-family:ui-sans-serif,system-ui,sans-serif,-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,'Helvetica Neue',Arial;-webkit-text-size-adjust:100%;-ms-text-size-adjust:100%;">
+
+  <!-- Preheader (hidden preview text) -->
+  <span style="display:none;max-height:0;overflow:hidden;mso-hide:all;">
+    Confirm your new email address to keep your Genie account secure.
+  </span>
+
+  <!-- Email wrapper -->
+  <table role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%" style="background-color:#09090b;">
+    <tr>
+      <td align="center" style="padding:48px 16px;">
+
+        <!-- Container -->
+        <table role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%" style="max-width:520px;">
+
+          <!-- Logo -->
+          <tr>
+            <td align="center" style="padding-bottom:40px;">
+              <img
+                src="https://qgkvoedctbygebjvuorp.supabase.co/storage/v1/object/public/public-assets/genie-logo-2.png"
+                alt="Genie"
+                width="48"
+                height="48"
+                style="display:block;width:48px;height:48px;border:0;margin:0 auto;"
+              />
+              <p style="margin:10px 0 0;font-size:18px;font-weight:700;color:#fafafa;letter-spacing:-0.3px;">Genie</p>
+            </td>
+          </tr>
+
+          <!-- Card -->
+          <tr>
+            <td style="background-color:#18181b;border:1px solid #27272a;border-radius:20px;padding:40px 40px 36px;">
+
+              <table role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%">
+                <tr>
+                  <td align="center" style="padding-bottom:8px;">
+                    <h1 style="margin:0;font-size:26px;font-weight:700;color:#fafafa;letter-spacing:-0.5px;line-height:1.2;">
+                      Confirm your new email
+                    </h1>
+                  </td>
+                </tr>
+                <tr>
+                  <td align="center" style="padding-bottom:32px;">
+                    <p style="margin:0;font-size:15px;color:#a1a1aa;line-height:1.6;">
+                      You requested to change your email address on Genie.<br/>
+                      Click the button below to confirm and complete the change.
+                    </p>
+                  </td>
+                </tr>
+
+                <!-- CTA Button -->
+                <tr>
+                  <td align="center" style="padding-bottom:32px;">
+                    <!--[if mso]>
+                    <v:roundrect xmlns:v="urn:schemas-microsoft-com:vml" xmlns:w="urn:schemas-microsoft-com:office:word" href="{{ .ConfirmationURL }}" style="height:52px;v-text-anchor:middle;width:260px;" arcsize="15%" stroke="f" fillcolor="#3ddabf">
+                      <w:anchorlock/>
+                      <center style="color:#0a0f1a;font-family:sans-serif;font-size:15px;font-weight:700;">Confirm new email</center>
+                    </v:roundrect>
+                    <![endif]-->
+                    <!--[if !mso]><!-->
+                    <a
+                      href="{{ .ConfirmationURL }}"
+                      style="display:inline-block;background:linear-gradient(135deg,#3ddabf,#1aa3d9);color:#0a0f1a;font-size:15px;font-weight:700;text-decoration:none;padding:15px 40px;border-radius:10px;letter-spacing:-0.1px;line-height:1;"
+                    >
+                      Confirm new email
+                    </a>
+                    <!--<![endif]-->
+                  </td>
+                </tr>
+
+                <!-- Divider -->
+                <tr>
+                  <td style="padding-bottom:24px;">
+                    <table role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%">
+                      <tr>
+                        <td style="border-top:1px solid #27272a;"></td>
+                      </tr>
+                    </table>
+                  </td>
+                </tr>
+
+                <!-- Fallback link -->
+                <tr>
+                  <td align="center" style="padding-bottom:8px;">
+                    <p style="margin:0;font-size:12px;color:#71717a;line-height:1.6;">
+                      Button not working? Copy and paste this link into your browser:
+                    </p>
+                  </td>
+                </tr>
+                <tr>
+                  <td align="center">
+                    <p style="margin:0;font-size:11px;word-break:break-all;">
+                      <a href="{{ .ConfirmationURL }}" style="color:#3ddabf;text-decoration:none;">{{ .ConfirmationURL }}</a>
+                    </p>
+                  </td>
+                </tr>
+              </table>
+
+            </td>
+          </tr>
+
+          <!-- Security note -->
+          <tr>
+            <td align="center" style="padding-top:24px;padding-bottom:8px;">
+              <p style="margin:0;font-size:12px;color:#52525b;line-height:1.6;">
+                This link expires in <strong style="color:#71717a;">24 hours</strong> and can only be used once.<br/>
+                If you didn't request this change, please contact support immediately.
+              </p>
+            </td>
+          </tr>
+
+          <!-- Footer -->
+          <tr>
+            <td align="center" style="padding-top:16px;">
+              <table role="presentation" cellspacing="0" cellpadding="0" border="0">
+                <tr>
+                  <td style="padding:0 8px;">
+                    <a href="https://genie.dev" style="font-size:12px;color:#52525b;text-decoration:none;">Website</a>
+                  </td>
+                  <td style="color:#3f3f46;font-size:12px;">·</td>
+                  <td style="padding:0 8px;">
+                    <a href="https://genie.dev/docs" style="font-size:12px;color:#52525b;text-decoration:none;">Docs</a>
+                  </td>
+                  <td style="color:#3f3f46;font-size:12px;">·</td>
+                  <td style="padding:0 8px;">
+                    <a href="mailto:hello@genie.dev" style="font-size:12px;color:#52525b;text-decoration:none;">Support</a>
+                  </td>
+                </tr>
+              </table>
+              <p style="margin:10px 0 0;font-size:11px;color:#3f3f46;">
+                © 2026 Genie. All rights reserved.
+              </p>
+            </td>
+          </tr>
+
+        </table>
+      </td>
+    </tr>
+  </table>
+
+</body>
+</html>

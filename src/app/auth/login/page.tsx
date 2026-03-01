@@ -2,10 +2,12 @@
 
 import { useState, useEffect } from 'react';
 import { useRouter, useSearchParams } from 'next/navigation';
+import Link from 'next/link';
 import Image from 'next/image';
 import { Eye, EyeOff } from 'lucide-react';
 import { FcGoogle } from 'react-icons/fc';
 import { FaGithub } from 'react-icons/fa';
+import { createClient } from '@/lib/supabase/client';
 
 export default function AuthPage() {
   const router = useRouter();
@@ -15,6 +17,7 @@ export default function AuthPage() {
   const [showConfirmPassword, setShowConfirmPassword] = useState(false);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState('');
+  const [success, setSuccess] = useState('');
 
   const [loginData, setLoginData] = useState({
     email: '',
@@ -57,24 +60,18 @@ export default function AuthPage() {
     e.preventDefault();
     setLoading(true);
     setError('');
+    setSuccess('');
 
     try {
-      const response = await fetch('/api/auth/signin', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(loginData),
+      const supabase = createClient();
+      const { error } = await supabase.auth.signInWithPassword({
+        email: loginData.email,
+        password: loginData.password,
       });
-
-      if (!response.ok) {
-        const data = await response.json();
-        throw new Error(data.message || 'Sign in failed');
-      }
-
+      if (error) throw error;
       router.push('/');
     } catch (err) {
-      setError(err instanceof Error ? err.message : 'An error occurred');
+      setError(err instanceof Error ? err.message : 'Sign in failed');
     } finally {
       setLoading(false);
     }
@@ -92,63 +89,67 @@ export default function AuthPage() {
     }
 
     try {
-      const response = await fetch('/api/auth/signup', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
+      const supabase = createClient();
+      const { error } = await supabase.auth.signUp({
+        email: signupData.email,
+        password: signupData.password,
+        options: {
+          data: { full_name: signupData.name },
         },
-        body: JSON.stringify({
-          name: signupData.name,
-          email: signupData.email,
-          password: signupData.password,
-        }),
       });
-
-      if (!response.ok) {
-        const data = await response.json();
-        throw new Error(data.message || 'Sign up failed');
-      }
-
+      if (error) throw error;
+      setSuccess('Account created! Check your email to confirm your address.');
       setMode('login');
       setError('');
     } catch (err) {
-      setError(err instanceof Error ? err.message : 'An error occurred');
+      setError(err instanceof Error ? err.message : 'Sign up failed');
     } finally {
       setLoading(false);
     }
   };
 
-  const handleOAuthClick = (provider: 'google' | 'github') => {
-    console.log(`${mode} with ${provider}`);
+  const handleOAuthClick = async (provider: 'google' | 'github') => {
+    const supabase = createClient();
+    await supabase.auth.signInWithOAuth({
+      provider,
+      options: {
+        redirectTo: `${window.location.origin}/auth/callback`,
+      },
+    });
   };
 
   return (
     <div className="min-h-screen flex items-center justify-center bg-background px-4 py-8">
       <div className="w-full max-w-md">
         {/* Logo */}
-        <div className="flex justify-center mb-10">
-          <div className="relative flex items-center justify-center">
-            <div className="absolute inset-0 bg-primary/30 rounded-full blur-2xl scale-150"></div>
+        <div className="flex justify-center mb-8">
+          <Link href="/" className="relative flex items-center justify-center group cursor-pointer">
+            <div className="absolute inset-0 bg-primary/30 rounded-full blur-2xl scale-150 group-hover:bg-primary/40 transition-colors"></div>
             <Image
               src="/genie-logo-2.png"
-              alt="Genie"
+              alt="Back to Genie"
               width={48}
               height={48}
-              className="h-12 w-auto relative z-10"
+              className="h-12 w-auto relative z-10 group-hover:scale-105 transition-transform duration-200"
             />
-          </div>
+          </Link>
         </div>
 
+        {/* Card */}
+        <div className="rounded-2xl border border-border/50 bg-card/60 backdrop-blur-xl shadow-xl shadow-black/10 px-8 py-8">
+
         {/* Tab Toggle */}
-        <div className="flex gap-1 mb-8 p-1.5 bg-background/40 rounded-xl border border-border/60 backdrop-blur-sm">
+        <div className="flex gap-1 mb-8 p-1 bg-muted rounded-xl border border-border/50">
           <button
             onClick={() => {
               setMode('login');
+              setError('');
+              setSuccess('');
               router.push('/auth/login');
             }}
-            className={`flex-1 h-10 rounded-lg text-sm font-semibold transition-all cursor-pointer ${
+            className={`flex-1 h-9 rounded-lg text-sm font-semibold transition-all duration-200 cursor-pointer ${
               mode === 'login'
-                ? 'bg-secondary text-secondary-foreground shadow-lg'
+                ? 'bg-background text-foreground shadow-sm'
                 : 'text-muted-foreground hover:text-foreground'
             }`}
           >
@@ -157,11 +158,13 @@ export default function AuthPage() {
           <button
             onClick={() => {
               setMode('signup');
+              setError('');
+              setSuccess('');
               router.push('/auth/login?mode=signup');
             }}
-            className={`flex-1 h-10 rounded-lg text-sm font-semibold transition-all cursor-pointer ${
+            className={`flex-1 h-9 rounded-lg text-sm font-semibold transition-all duration-200 cursor-pointer ${
               mode === 'signup'
-                ? 'bg-secondary text-secondary-foreground shadow-lg'
+                ? 'bg-background text-foreground shadow-sm'
                 : 'text-muted-foreground hover:text-foreground'
             }`}
           >
@@ -183,6 +186,13 @@ export default function AuthPage() {
         {error && (
           <div className="mb-4 p-3 rounded-md bg-destructive/10 border border-destructive/20 text-destructive text-sm">
             {error}
+          </div>
+        )}
+
+        {/* Success Message */}
+        {success && (
+          <div className="mb-4 p-3 rounded-md bg-primary/10 border border-primary/20 text-primary text-sm">
+            {success}
           </div>
         )}
 
@@ -266,7 +276,7 @@ export default function AuthPage() {
                 <div className="w-full border-t border-border/40"></div>
               </div>
               <div className="relative flex justify-center">
-                <span className="bg-card/50 backdrop-blur-xl px-2 text-xs uppercase tracking-widest text-muted-foreground/60">
+                <span className="bg-card px-2 text-xs uppercase tracking-widest text-muted-foreground/60">
                   or
                 </span>
               </div>
@@ -277,7 +287,7 @@ export default function AuthPage() {
               <button
                 type="button"
                 onClick={() => handleOAuthClick('google')}
-                className="flex items-center justify-center gap-2 h-11 rounded-lg border border-border/50 bg-card/50 hover:bg-card hover:border-primary/30 transition-all duration-200 text-sm font-semibold text-foreground cursor-pointer hover:shadow-md hover:shadow-primary/10"
+                className="flex items-center justify-center gap-2 h-11 rounded-lg border border-border/50 bg-muted/40 text-muted-foreground hover:bg-muted hover:text-foreground transition-all duration-200 text-sm font-semibold cursor-pointer"
               >
                 <FcGoogle className="h-5 w-5" />
                 Google
@@ -286,7 +296,7 @@ export default function AuthPage() {
               <button
                 type="button"
                 onClick={() => handleOAuthClick('github')}
-                className="flex items-center justify-center gap-2 h-11 rounded-lg border border-border/50 bg-card/50 hover:bg-card hover:border-primary/30 transition-all duration-200 text-sm font-semibold text-foreground cursor-pointer hover:shadow-md hover:shadow-primary/10"
+                className="flex items-center justify-center gap-2 h-11 rounded-lg border border-border/50 bg-muted/40 text-muted-foreground hover:bg-muted hover:text-foreground transition-all duration-200 text-sm font-semibold cursor-pointer"
               >
                 <FaGithub className="h-5 w-5" />
                 GitHub
@@ -438,7 +448,7 @@ export default function AuthPage() {
                 <div className="w-full border-t border-border/40"></div>
               </div>
               <div className="relative flex justify-center">
-                <span className="bg-card/50 backdrop-blur-xl px-2 text-xs uppercase tracking-widest text-muted-foreground/60">
+                <span className="bg-card px-2 text-xs uppercase tracking-widest text-muted-foreground/60">
                   or
                 </span>
               </div>
@@ -449,7 +459,7 @@ export default function AuthPage() {
               <button
                 type="button"
                 onClick={() => handleOAuthClick('google')}
-                className="flex items-center justify-center gap-2 h-11 rounded-lg border border-border/50 bg-card/50 hover:bg-card hover:border-primary/30 transition-all duration-200 text-sm font-semibold text-foreground cursor-pointer hover:shadow-md hover:shadow-primary/10"
+                className="flex items-center justify-center gap-2 h-11 rounded-lg border border-border/50 bg-muted/40 text-muted-foreground hover:bg-muted hover:text-foreground transition-all duration-200 text-sm font-semibold cursor-pointer"
               >
                 <FcGoogle className="h-5 w-5" />
                 Google
@@ -458,7 +468,7 @@ export default function AuthPage() {
               <button
                 type="button"
                 onClick={() => handleOAuthClick('github')}
-                className="flex items-center justify-center gap-2 h-11 rounded-lg border border-border/50 bg-card/50 hover:bg-card hover:border-primary/30 transition-all duration-200 text-sm font-semibold text-foreground cursor-pointer hover:shadow-md hover:shadow-primary/10"
+                className="flex items-center justify-center gap-2 h-11 rounded-lg border border-border/50 bg-muted/40 text-muted-foreground hover:bg-muted hover:text-foreground transition-all duration-200 text-sm font-semibold cursor-pointer"
               >
                 <FaGithub className="h-5 w-5" />
                 GitHub
@@ -466,6 +476,7 @@ export default function AuthPage() {
             </div>
           </form>
         )}
+        </div>{/* /Card */}
       </div>
     </div>
   );
