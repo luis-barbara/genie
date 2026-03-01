@@ -109,13 +109,21 @@ export default function AuthPage() {
   };
 
   const handleOAuthClick = async (provider: 'google' | 'github') => {
-    const supabase = createClient();
-    await supabase.auth.signInWithOAuth({
-      provider,
-      options: {
-        redirectTo: `${window.location.origin}/auth/callback`,
-      },
-    });
+    try {
+      setLoading(true);
+      setError('');
+      const supabase = createClient();
+      const { error } = await supabase.auth.signInWithOAuth({
+        provider,
+        options: {
+          redirectTo: `${window.location.origin}/auth/callback`,
+        },
+      });
+      if (error) throw error;
+    } catch (err) {
+      setError(err instanceof Error ? err.message : `Failed to sign in with ${provider}`);
+      setLoading(false);
+    }
   };
 
   return (
