@@ -1,9 +1,15 @@
+'use client';
+
 import { Check } from "lucide-react";
+import Link from "next/link";
+import { useScrollAnimation } from '@/hooks/useScrollAnimation';
 
 
 const Pricing = () => {
+  const { ref, isVisible } = useScrollAnimation();
+
   return (
-    <section className="py-24 md:py-32 border-t border-border/50" id="pricing">
+    <section ref={ref as React.RefObject<HTMLElement>} className="py-24 md:py-32 border-t border-border/50" id="pricing">
       <div className="max-w-7xl mx-auto px-6">
         <div className="text-center mb-16">
           <h2 className="text-3xl md:text-5xl font-bold mb-4">
@@ -16,7 +22,7 @@ const Pricing = () => {
 
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-7xl mx-auto">
           {/* Free Plan */}
-          <div className="relative p-6 rounded-2xl border border-border/50 bg-card/50">
+          <div className={`relative p-6 rounded-2xl border border-border/50 bg-card/50 scroll-reveal ${isVisible ? 'is-visible' : ''} stagger-1`}>
             <div className="mb-6">
               <h3 className="text-xl font-bold mb-2">Free</h3>
               <p className="text-sm text-muted-foreground mb-4">Try Genie on a single project.</p>
@@ -47,15 +53,16 @@ const Pricing = () => {
                 <span>Community support</span>
               </li>
             </ul>
-            <a className="block" href="/register">
-              <button className="inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:size-4 [&_svg]:shrink-0 border border-input bg-background hover:bg-accent hover:text-accent-foreground h-10 px-4 py-2 w-full cursor-pointer">
-                Start Free
-              </button>
-            </a>
+            <Link
+              className="inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:size-4 [&_svg]:shrink-0 border border-input bg-background hover:bg-accent hover:text-accent-foreground h-10 px-4 py-2 w-full cursor-pointer"
+              href="/auth/signup"
+            >
+              Start Free
+            </Link>
           </div>
 
           {/* Pro Plan */}
-          <div className="relative p-6 rounded-2xl border border-border/50 bg-card/50">
+          <div className={`relative p-6 rounded-2xl border border-border/50 bg-card/50 scroll-reveal ${isVisible ? 'is-visible' : ''} stagger-2`}>
             <div className="mb-6">
               <h3 className="text-xl font-bold mb-2">Pro</h3>
               <p className="text-sm text-muted-foreground mb-4">Evolve your projects without hiring anyone.</p>
@@ -94,15 +101,16 @@ const Pricing = () => {
                 <span>Email support</span>
               </li>
             </ul>
-            <a className="block" href="/register">
-              <button className="inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:size-4 [&_svg]:shrink-0 border border-input bg-background hover:bg-accent hover:text-accent-foreground h-10 px-4 py-2 w-full cursor-pointer">
-                Start Pro Trial
-              </button>
-            </a>
+            <Link
+              className="inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:size-4 [&_svg]:shrink-0 border border-input bg-background hover:bg-accent hover:text-accent-foreground h-10 px-4 py-2 w-full cursor-pointer"
+              href="/auth/signup"
+            >
+              Start Pro Trial
+            </Link>
           </div>
 
           {/* Founder Plan */}
-          <div className="relative p-6 rounded-2xl border-2 border-primary ring ring-primary bg-card shadow-xl shadow-primary/10">
+          <div className={`relative p-6 rounded-2xl border-2 border-primary ring ring-primary bg-card shadow-xl shadow-primary/10 scroll-reveal ${isVisible ? 'is-visible' : ''} stagger-3`}>
             <div className="absolute -top-3 left-1/2 -translate-x-1/2 px-3 py-1 rounded-full bg-primary text-primary-foreground text-xs font-medium">
               Most Popular
             </div>
@@ -140,15 +148,16 @@ const Pricing = () => {
                 <span>Priority support</span>
               </li>
             </ul>
-            <a className="block" href="/register">
-              <button className="inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm ring-offset-background focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:size-4 [&_svg]:shrink-0 genie-gradient-bg text-primary-foreground font-semibold hover:opacity-90 genie-glow transition-all duration-300 h-10 px-4 py-2 w-full cursor-pointer">
-                Start Founder Trial
-              </button>
-            </a>
+            <Link
+              className="inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm ring-offset-background focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:size-4 [&_svg]:shrink-0 genie-gradient-bg text-primary-foreground font-semibold hover:opacity-90 genie-glow transition-all duration-300 h-10 px-4 py-2 w-full cursor-pointer"
+              href="/auth/signup"
+            >
+              Start Founder Trial
+            </Link>
           </div>
 
           {/* Enterprise Plan */}
-          <div className="relative p-6 rounded-2xl border border-border/50 bg-card/50">
+          <div className={`relative p-6 rounded-2xl border border-border/50 bg-card/50 scroll-reveal ${isVisible ? 'is-visible' : ''} stagger-4`}>
             <div className="mb-6">
               <h3 className="text-xl font-bold mb-2">Enterprise</h3>
               <p className="text-sm text-muted-foreground mb-4">Private cloud, SSO, dedicated support.</p>
@@ -174,11 +183,12 @@ const Pricing = () => {
                 <span>Dedicated support</span>
               </li>
             </ul>
-            <a className="block" href="/register">
-              <button className="inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:size-4 [&_svg]:shrink-0 border border-input bg-background hover:bg-accent hover:text-accent-foreground h-10 px-4 py-2 w-full cursor-pointer">
-                Contact Sales
-              </button>
-            </a>
+            <Link
+              className="inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:size-4 [&_svg]:shrink-0 border border-input bg-background hover:bg-accent hover:text-accent-foreground h-10 px-4 py-2 w-full cursor-pointer"
+              href="/auth/signup"
+            >
+              Contact Sales
+            </Link>
           </div>
         </div>
       </div>

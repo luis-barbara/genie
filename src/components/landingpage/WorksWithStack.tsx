@@ -1,3 +1,6 @@
+'use client';
+
+import { useScrollAnimation } from '@/hooks/useScrollAnimation';
 
 const integrations = [
   "GitHub",
@@ -28,8 +31,10 @@ const supports = [
 ];
 
 const WorksWithStack = () => {
+  const { ref, isVisible } = useScrollAnimation();
+
   return (
-    <section className="py-24 md:py-32 border-t border-border/50" id="workswithstack">
+    <section ref={ref as React.RefObject<HTMLElement>} className="py-24 md:py-32 border-t border-border/50" id="workswithstack">
       <div className="max-w-7xl mx-auto px-6">
         <div className="text-center mb-16">
           <h2 className="text-3xl md:text-5xl font-bold mb-4">
@@ -44,10 +49,10 @@ const WorksWithStack = () => {
           <p className="text-muted-foreground mb-4 uppercase">connects with</p>
 
           <div className="flex flex-wrap justify-center gap-3">
-        {integrations.map((item) => (
+        {integrations.map((item, index) => (
             <div
               key={item}
-             className="px-6 py-3 rounded-xl bg-card/50 ring-1 ring-white/10 hover:bg-card hover:ring-1 hover:ring-primary/30 transition-all duration-300"
+             className={`px-6 py-3 rounded-xl bg-card/50 ring-1 ring-white/10 hover:bg-card hover:ring-1 hover:ring-primary/30 transition-all duration-300 scroll-reveal ${isVisible ? 'is-visible' : ''} stagger-${(index % 8) + 1}`}
             >
               <span className="font-medium">{item}</span>
             </div>

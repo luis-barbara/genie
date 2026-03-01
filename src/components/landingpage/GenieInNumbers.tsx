@@ -1,4 +1,6 @@
+'use client';
 
+import { useScrollAnimation } from '@/hooks/useScrollAnimation';
 
 const GenieInNumbers = () => {
   const stats = [
@@ -7,8 +9,10 @@ const GenieInNumbers = () => {
     { value: "98%", label: "Approval rate" },
   ];
 
+  const { ref, isVisible } = useScrollAnimation();
+
   return (
-    <section className="py-24 md:py-32 border-t border-border/50" id="genieinnumbers">
+    <section ref={ref as React.RefObject<HTMLElement>} className="py-24 md:py-32 border-t border-border/50" id="genieinnumbers">
       <div className="max-w-7xl mx-auto px-6">
         <div className="text-center mb-16">
             <p className="text-lg md:text-2xl text-muted-foreground font-bold mb-8 uppercase tracking-widest">
@@ -21,7 +25,7 @@ const GenieInNumbers = () => {
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-12">
           {stats.map((stat, index) => (
-            <div key={index} className="text-center">
+            <div key={index} className={`text-center scroll-reveal ${isVisible ? 'is-visible' : ''} stagger-${index + 1}`}>
               <div className="text-5xl md:text-6xl lg:text-7xl font-bold genie-gradient-text mb-3">
                 {stat.value}
               </div>

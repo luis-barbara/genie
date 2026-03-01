@@ -1,4 +1,7 @@
+'use client';
+
 import { Bot, TrendingUpIcon, GraduationCap, Lock, CircleCheckBig, GitPullRequest, BrushCleaning, Globe, RefreshCcw, Clock, MessageSquare, Sparkles, ChartColumn, Database, Gauge, Shield, Zap, Code, TriangleAlert, Rocket, Brain } from "lucide-react";
+import { useScrollAnimation } from '@/hooks/useScrollAnimation';
 
 const messages = [
   "Add a dark mode toggle to the settings page",
@@ -44,8 +47,10 @@ const learning = [
 
 
 const GenieCopilot = () => {
+  const { ref, isVisible } = useScrollAnimation();
+
   return (
-    <section className="py-24 md:py-32 border-t border-border/50" id="geniecopilot">
+    <section ref={ref as React.RefObject<HTMLElement>} className="py-24 md:py-32 border-t border-border/50" id="geniecopilot">
       <div className="max-w-7xl mx-auto px-6">
 
         {/* Header */}
@@ -67,7 +72,7 @@ const GenieCopilot = () => {
       {/* Grid com 6 cards (1 coluna em mobile, 2 colunas em desktop) */}
       <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
         {/* Card 1 - Topo Esquerda (Mensagens) */}
-        <div className="space-y-3">
+        <div className={`space-y-3 scroll-reveal ${isVisible ? 'is-visible' : ''} stagger-1`}>
           {messages.map((msg, idx) => (
             <div
               key={idx}
@@ -80,7 +85,7 @@ const GenieCopilot = () => {
         </div>
 
         {/* Card 2 - Topo Direita (Chat) */}
-        <div className="relative rounded-2xl border border-border/50 bg-card/80 p-6 shadow-2xl">
+        <div className={`relative rounded-2xl border border-border/50 bg-card/80 p-6 shadow-2xl scroll-reveal ${isVisible ? 'is-visible' : ''} stagger-2`}>
           <div className="flex items-center gap-3 mb-6">
             <div className="h-10 w-10 rounded-xl genie-gradient-bg flex items-center justify-center">
               <Sparkles className="h-5 w-5 text-primary-foreground" />
@@ -105,7 +110,7 @@ const GenieCopilot = () => {
         </div>
 
         {/* Card 3 - Evolution */}
-        <div className="p-8 rounded-2xl border border-border/50 bg-card/50">
+        <div className={`p-8 rounded-2xl border border-border/50 bg-card/50 scroll-reveal ${isVisible ? 'is-visible' : ''} stagger-3`}>
           <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-primary/10 border border-primary/20 text-sm text-primary mb-6">
             <Zap className="h-4 w-4" />
             Evolution
@@ -125,7 +130,7 @@ const GenieCopilot = () => {
         </div>
 
         {/* Card 4 - Monitoring */}
-        <div className="p-8 rounded-2xl border border-border/50 bg-card/50">
+        <div className={`p-8 rounded-2xl border border-border/50 bg-card/50 scroll-reveal ${isVisible ? 'is-visible' : ''} stagger-4`}>
           <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-success/10 border border-success/20 text-sm text-success mb-6">
             <Shield className="h-4 w-4" />
             Monitoring
@@ -145,7 +150,7 @@ const GenieCopilot = () => {
         </div>
 
         {/* Card 5 - Safe Pipeline */}
-        <div className="p-8 rounded-2xl border border-border/50 bg-card/50">
+        <div className={`p-8 rounded-2xl border border-border/50 bg-card/50 scroll-reveal ${isVisible ? 'is-visible' : ''} stagger-5`}>
           <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-warning/10 border border-warning/20 text-sm text-warning mb-6">
             <Lock className="h-4 w-4" />
             Safe Pipeline
@@ -165,7 +170,7 @@ const GenieCopilot = () => {
         </div>
 
         {/* Card 6 - Learning */}
-        <div className="p-8 rounded-2xl border border-border/50 bg-card/50">
+        <div className={`p-8 rounded-2xl border border-border/50 bg-card/50 scroll-reveal ${isVisible ? 'is-visible' : ''} stagger-6`}>
           <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-primary/10 border border-primary/20 text-sm text-primary mb-6">
             <GraduationCap className="h-4 w-4" />
             Learning

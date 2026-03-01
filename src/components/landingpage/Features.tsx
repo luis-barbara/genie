@@ -1,4 +1,7 @@
+'use client';
+
 import { Brain, Zap, GitPullRequest, Rocket, MapPin, RefreshCcw } from "lucide-react";
+import { useScrollAnimation } from '@/hooks/useScrollAnimation';
 
 const valuePillars = [
   {
@@ -34,8 +37,10 @@ const valuePillars = [
 ];
 
 const Features = () => {
+    const { ref, isVisible } = useScrollAnimation();
+
     return (
-        <section className="py-24 md:py-32 border-t border-border/50" id="features">
+        <section ref={ref as React.RefObject<HTMLElement>} className="py-24 md:py-32 border-t border-border/50" id="features">
         <div className="max-w-7xl mx-auto px-6">
             <div className="text-center mb-16">
             <h2 className="text-3xl md:text-5xl font-bold mb-4">
@@ -48,10 +53,10 @@ const Features = () => {
             </div>
 
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
-            {valuePillars.map((pillar) => (
+            {valuePillars.map((pillar, index) => (
                 <div
                 key={pillar.title}
-                className="group relative p-8 rounded-2xl bg-card/50 ring-1 ring-white/10 hover:bg-card hover:ring-1 hover:ring-primary/30 transition-all duration-300"
+                className={`group relative p-8 rounded-2xl bg-card/50 ring-1 ring-white/10 hover:bg-card hover:ring-1 hover:ring-primary/30 transition-all duration-300 scroll-reveal ${isVisible ? 'is-visible' : ''} stagger-${(index % 6) + 1}`}
                 >
                 {/* Subtle glow on hover */}
                 <div className="absolute inset-0 rounded-2xl bg-primary/5 opacity-0 group-hover:opacity-100 transition-opacity blur-xl" />

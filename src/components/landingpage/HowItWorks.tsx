@@ -1,4 +1,7 @@
+'use client';
+
 import { Database, Search, Code, GitPullRequest, Rocket, MessageSquare } from "lucide-react";
+import { useScrollAnimation } from '@/hooks/useScrollAnimation';
 
 const workflowSteps = [
   { step: 1, title: "Connect your project", icon: Database },
@@ -10,8 +13,10 @@ const workflowSteps = [
 ];
 
 const HowItWorks = () => {
+  const { ref, isVisible } = useScrollAnimation();
+
   return (
-    <section className="py-24 md:py-32 border-t border-border/50" id="howitworks">
+    <section ref={ref as React.RefObject<HTMLElement>} className="py-24 md:py-32 border-t border-border/50" id="how-it-works">
       <div className="max-w-7xl mx-auto px-6">
         <div className="text-center mb-16">
           <h2 className="text-3xl md:text-5xl font-bold mb-4">
@@ -27,7 +32,7 @@ const HowItWorks = () => {
           <div className="hidden lg:block absolute top-12 left-0 right-0 h-0.5 bg-linear-to-r from-transparent via-primary/30 to-transparent" />
           
           {workflowSteps.map((step) => (
-            <div key={step.step} className="flex flex-col items-center text-center relative z-10">
+            <div key={step.step} className={`flex flex-col items-center text-center relative z-10 scroll-reveal ${isVisible ? 'is-visible' : ''} stagger-${step.step}`}>
               <div className="relative mb-4">
                 <div className="h-24 w-24 rounded-2xl genie-gradient-bg flex items-center justify-center shadow-lg shadow-primary/20">
                   <step.icon className="h-10 w-10 text-primary-foreground" />

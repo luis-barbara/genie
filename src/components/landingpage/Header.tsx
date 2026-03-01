@@ -31,15 +31,16 @@ const Header = () => {
 
       {/* Botões */}
       <div className="flex items-center gap-4">
-        <Link href="/login" className="text-sm text-muted-foreground hover:text-foreground transition-colors hidden sm:block">
+        <Link href="/auth/login" className="text-sm text-muted-foreground hover:text-foreground transition-colors hidden sm:block">
           Login
         </Link>
 
-        <Link href="/register">
-          <button className="inline-flex items-center justify-center whitespace-nowrap text-sm ring-offset-background focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:size-4 [&_svg]:shrink-0 genie-gradient-bg text-primary-foreground font-semibold hover:opacity-90 genie-glow transition-all duration-300 h-9 rounded-md px-3 gap-2 cursor-pointer">
-            Start Free
-            <ArrowRight className="h-4 w-4" />
-          </button>
+        <Link
+          href="/auth/signup"
+          className="inline-flex items-center justify-center whitespace-nowrap text-sm ring-offset-background focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:size-4 [&_svg]:shrink-0 genie-gradient-bg text-primary-foreground font-semibold hover:opacity-90 genie-glow transition-all duration-300 h-10 rounded-md px-4 gap-2 cursor-pointer"
+        >
+          Start Free
+          <ArrowRight className="h-4 w-4" />
         </Link>
       </div>
     </header>
